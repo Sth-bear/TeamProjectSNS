@@ -17,10 +17,10 @@ class SingInActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val login_btn = findViewById<Button>(R.id.button)
-        val login_id = findViewById<TextView>(R.id.editTextText)
-        val login_pw = findViewById<TextView>(R.id.editTextTextPassword)
-        val create_btn = findViewById<Button>(R.id.button3)
+        val login_btn = findViewById<Button>(R.id.btnSighIn)
+        val login_id = findViewById<TextView>(R.id.etId)
+        val login_pw = findViewById<TextView>(R.id.etPw)
+        val create_btn = findViewById<Button>(R.id.btnSighUp)
 
         login_btn.setOnClickListener {
             val id = login_id.text.toString()
