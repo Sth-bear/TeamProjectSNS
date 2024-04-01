@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TeamProject1</string>
+    <string name="logOut">LogOut</string>
 </resources>
