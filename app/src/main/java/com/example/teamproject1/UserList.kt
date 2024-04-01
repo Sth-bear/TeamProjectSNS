@@ -1,7 +1,7 @@
 package com.example.teamproject1
 
 object UserList {
-    private val userList = mutableListOf<UserInfo>(
+    val userList = mutableListOf<UserInfo>(
         UserInfo(username = "name1", id = "test", email = "email1", password = "1234"),
         UserInfo(username = "name2", id = "id2", email = "email2", password = "password2")
     )
