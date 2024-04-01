@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.example.teamproject1.UserList.userList
+import com.example.teamproject1.databinding.ActivityMainBinding
 
 //로그인
 class SingInActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val login_btn = findViewById<Button>(R.id.btnSighIn)
         val login_id = findViewById<TextView>(R.id.etId)
