@@ -4,6 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".LobbyActivity">
+
+
+    <TextView
+        android:id="@+id/tvLobbyTop"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="11조 SNS 앱"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSetUp"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLobbyTop"
+        app:layout_constraintStart_toEndOf="@+id/tvLobbyTop"
+        app:layout_constraintTop_toTopOf="@+id/tvLobbyTop"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ivsetup" />
+
+    <ImageView
+        android:id="@+id/ivmyPage"
+        android:layout_width="31dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSetUp"
+        app:layout_constraintStart_toEndOf="@+id/ivSetUp"
+        app:layout_constraintTop_toTopOf="@+id/ivSetUp"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ivmypage" />
+
+    <ImageView
+        android:id="@+id/ivToDetail1"
+        android:layout_width="107dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvLobbyTop"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvLobbyTop"
+        app:layout_constraintTop_toBottomOf="@+id/tvLobbyTop"
+        app:srcCompat="@drawable/profilecircle" />
+
+    <ImageView
+        android:id="@+id/ivToDetail2"
+        android:layout_width="107dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivToDetail3"
+        app:layout_constraintStart_toEndOf="@+id/ivToDetail3"
+        app:layout_constraintTop_toTopOf="@+id/ivToDetail3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/profilecircle" />
+
+    <ImageView
+        android:id="@+id/ivToDetail3"
+        android:layout_width="107dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivToDetail1"
+        app:layout_constraintStart_toEndOf="@+id/ivToDetail1"
+        app:layout_constraintTop_toTopOf="@+id/ivToDetail1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/profilecircle" />
+
+    <ImageView
+        android:id="@+id/ivUserImage"
+        android:layout_width="42dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivToDetail1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ivToDetail1"
+        app:layout_constraintTop_toBottomOf="@+id/ivToDetail1"
+        app:srcCompat="@drawable/profilecircle" />
+
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="아이디"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
+        app:layout_constraintStart_toEndOf="@+id/ivUserImage"
+        app:layout_constraintTop_toTopOf="@+id/ivUserImage" />
+
+    <ImageView
+        android:id="@+id/ivPostImage"
+        android:layout_width="386dp"
+        android:layout_height="387dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivUserImage"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="@+id/ivUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/ivUserImage"
+        app:srcCompat="@drawable/imagerectangle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
