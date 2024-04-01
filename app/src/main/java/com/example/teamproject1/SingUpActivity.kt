@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.example.teamproject1.UserList.addUser
+import com.example.teamproject1.databinding.ActivitySingUpBinding
 
 //회원가입
 class SingUpActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySingUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sing_up)
+        binding = ActivitySingUpBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val userName = findViewById<EditText>(R.id.editTextText2)
         val userEmail = findViewById<EditText>(R.id.editTextTextEmailAddress)
