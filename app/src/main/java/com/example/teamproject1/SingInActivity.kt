@@ -10,7 +10,7 @@ import com.example.teamproject1.databinding.ActivityMainBinding
 
 //로그인
 class SingInActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
