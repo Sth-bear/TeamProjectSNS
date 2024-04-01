@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TeamProject1</string>
     <string name="signUp">회원가입</string>
+    <string name="logOut">LogOut</string>
 </resources>
