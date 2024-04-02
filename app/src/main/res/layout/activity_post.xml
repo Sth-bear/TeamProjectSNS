@@ -18,102 +18,117 @@
         app:srcCompat="@drawable/btnback" />
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivUserImage"
-        android:layout_width="42dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/iv_example2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profilecircle" />
-
-    <TextView
-        android:id="@+id/tvId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:gravity="center_vertical"
-        android:text="@string/idHint"
-        android:textColor="@color/tvColor"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@id/ivUserImage"
-        app:layout_constraintStart_toEndOf="@id/ivUserImage"
-        app:layout_constraintTop_toTopOf="@id/ivUserImage"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-
-    <ImageView
-        android:id="@+id/ivPostImage"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="365dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/iv_example"
-        android:scaleType="fitXY"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivUserImage" />
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        app:layout_constraintStart_toStartOf="@id/ivPostImage"
-        app:layout_constraintEnd_toEndOf="@id/ivPostImage"
-        app:layout_constraintTop_toBottomOf="@id/ivPostImage"
-        android:background="@drawable/post_stoke">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="2024.04.02"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="13dp"
-            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivUserImage"
+                android:layout_width="42dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/iv_example2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/profilecircle" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDay"
-            android:text="오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요."
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textSize="15sp"/>
-
-        <ImageView
-            android:id="@+id/ivHeart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/vector_heart"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageView
-            android:id="@+id/ivComment"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintEnd_toStartOf="@id/ivHeart"
-            android:src="@drawable/vector_comment"
-            app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/tvId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:gravity="center_vertical"
+                android:text="@string/idHint"
+                android:textColor="@color/tvColor"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/ivUserImage"
+                app:layout_constraintStart_toEndOf="@id/ivUserImage"
+                app:layout_constraintTop_toTopOf="@id/ivUserImage"
+                tools:layout_editor_absoluteX="-3dp"
+                tools:layout_editor_absoluteY="0dp" />
 
 
+            <ImageView
+                android:id="@+id/ivPostImage"
+                android:layout_width="match_parent"
+                android:layout_height="365dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/iv_example"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivUserImage" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/postLayout"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:background="@drawable/post_stoke"
+                app:layout_constraintEnd_toEndOf="@id/ivPostImage"
+                app:layout_constraintStart_toStartOf="@id/ivPostImage"
+                app:layout_constraintTop_toBottomOf="@id/ivPostImage">
 
+                <TextView
+                    android:id="@+id/tvDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="13dp"
+                    android:text="2024.04.02"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요."
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDay" />
+
+                <ImageView
+                    android:id="@+id/ivHeart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/vector_heart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="13dp"
+                    android:src="@drawable/vector_comment"
+                    app:layout_constraintEnd_toStartOf="@id/ivHeart"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ListView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/postLayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
