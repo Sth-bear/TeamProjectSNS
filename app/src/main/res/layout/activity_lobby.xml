@@ -38,10 +38,10 @@
             </FrameLayout>
 
             <ImageView
-                android:id="@+id/ivSetUp"
-                android:layout_width="35dp"
-                android:layout_height="37dp"
-                app:srcCompat="@drawable/ivsetup" />
+                android:id="@+id/ivmyPage"
+                android:layout_width="31dp"
+                android:layout_height="38dp"
+                app:srcCompat="@drawable/ivmypage" />
 
             <FrameLayout
                 android:layout_width="14dp"
@@ -50,10 +50,10 @@
             </FrameLayout>
 
             <ImageView
-                android:id="@+id/ivmyPage"
-                android:layout_width="31dp"
-                android:layout_height="38dp"
-                app:srcCompat="@drawable/ivmypage" />
+                android:id="@+id/btnSetUp"
+                android:layout_width="35dp"
+                android:layout_height="37dp"
+                app:srcCompat="@drawable/ivsetup" />
         </LinearLayout>
 
         <ScrollView
