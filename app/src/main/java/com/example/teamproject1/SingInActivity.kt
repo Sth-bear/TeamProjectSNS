@@ -34,10 +34,15 @@ class SingInActivity : AppCompatActivity() {
 
 
         binding.btnSighIn.setOnClickListener {
-
-            if(login(id = binding.etId.text.toString(), password = binding.etPw.text.toString())) {
+            val id = binding.etId.text.toString()
+            val password = binding.etPw.text.toString()
+            val user = login(id = id,password = password)
+            // if (login(id = id = binding.etId.text.toString() ,password = binding.etPw.text.toString()) {
+            if(user != null) {
                 val intent = Intent(this, LobbyActivity::class.java)
-                intent.putExtra("loginId", binding.etId.text.toString())
+                intent.putExtra("loginId", user.id)
+                intent.putExtra("NAME", user.username)
+                intent.putExtra("EMAIL", user.email)
                 startActivity(intent)
                 finish()
             } else {
@@ -52,12 +57,15 @@ class SingInActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(id: String, password: String): Boolean {
+//    private fun login(id: String, password: String): Boolean {
+    private fun login(id: String, password: String): UserInfo? {
         for (user in userList) {
             if (user.id == id && user.password == password)
-                return true
+                //return true
+                return user
         }
-        return false
+        //return false
+        return null
     }
 
 }

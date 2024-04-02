@@ -17,6 +17,14 @@ class MyPageActivity : AppCompatActivity() {
         overrideActivityTransition(OVERRIDE_TRANSITION_OPEN,R.anim.slide_right_enter,R.anim.slide_none)
         setUpLogOut()
 
+        val id = intent.getStringExtra("UserID")
+        val username = intent.getStringExtra("UserNAME")
+        val email = intent.getStringExtra("UserEMAIL")
+
+        binding.tvId.text = id
+        binding.tvName.text = username
+        binding.tvEmail.text = email
+
     }
     private fun setUpLogOut() {
         binding.btnLogOut.setOnClickListener {

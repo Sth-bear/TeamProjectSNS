@@ -14,6 +14,10 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val id = intent.getStringExtra("ID")
+        val username = intent.getStringExtra("NAME")
+        val email = intent.getStringExtra("EMAIL")
+
 
         binding.ivPostImage.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
@@ -21,6 +25,9 @@ class LobbyActivity : AppCompatActivity() {
         }
         binding.ivmyPage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
+            intent.putExtra("UserID", id)
+            intent.putExtra("UserNAME", username)
+            intent.putExtra("UserEMAIL", email)
             startActivity(intent)
         }
     }
