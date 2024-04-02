@@ -52,8 +52,9 @@ class LobbyActivity : AppCompatActivity() {
             }
             popupMenu.show()
         }
-        binding.ivPostImage.setOnClickListener {
+        binding.ivToDetail1.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("userId","test1" )
             startActivity(intent)
         }
         binding.ivmyPage.setOnClickListener {
