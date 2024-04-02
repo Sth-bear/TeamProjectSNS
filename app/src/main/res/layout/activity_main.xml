@@ -4,48 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".SingInActivity">
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="100dp"
+        android:id="@+id/etId"
+        android:layout_width="299dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="48dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/idpw_ractangle"
         android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        android:hint="@string/idHint"
+        app:layout_constraintEnd_toEndOf="@+id/loginTop"
+        app:layout_constraintStart_toStartOf="@+id/loginTop"
+        app:layout_constraintTop_toBottomOf="@+id/loginTop" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/etPw"
+        android:layout_width="300dp"
+        android:layout_height="47dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/idpw_ractangle"
+        android:ems="10"
+        android:hint="@string/pwdHint"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etId"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/etId"
+        app:layout_constraintTop_toBottomOf="@+id/etId" />
+
+    <Button
+        android:id="@+id/btnSighIn"
+        android:layout_width="307dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/etPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etPw"
+        app:layout_constraintTop_toBottomOf="@+id/etPw" />
+
+    <TextView
+        android:id="@+id/loginTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
+        android:layout_marginTop="164dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/loginTop"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="121dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        android:id="@+id/btnSighUp"
+        android:layout_width="306dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/signUp"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSighIn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnSighIn"
+        app:layout_constraintTop_toBottomOf="@+id/btnSighIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,20 +17,8 @@ class SingUpActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val userName = findViewById<EditText>(R.id.editTextText2)
-        val userEmail = findViewById<EditText>(R.id.editTextTextEmailAddress)
-        val userPassword = findViewById<EditText>(R.id.editTextTextPassword2)
-        val userId = findViewById<EditText>(R.id.editTextText3)
-        val create_btn2 = findViewById<Button>(R.id.button2)
-
-
-        create_btn2.setOnClickListener {
-            val name = userName.text.toString()
-            val email = userEmail.text.toString()
-            val id = userId.text.toString()
-            val password = userPassword.text.toString()
-
-            addUser(username = name, id = id, password = password, email = email)
+        binding.btnSignUp2.setOnClickListener {
+            addUser(username = binding.etName.text.toString(), id = binding.etId.text.toString(), password = binding.etPW.text.toString(), email = binding.etEmail.text.toString())
             val intent = Intent(this, SingInActivity::class.java)
             startActivity(intent)
             finish()
