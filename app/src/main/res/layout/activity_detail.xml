@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgLayout"
     tools:context=".DetailActivity">
 
 
@@ -33,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:textColor="@color/tvColor"
         android:text=""
         android:textSize="20sp"
         android:textStyle="bold"
@@ -46,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:textColor="@color/tvColor"
         android:maxLines="2"
         android:text="가나다라마바사아자차가탕ㅁ낭ㅁㄴㅇ"
         android:textSize="15sp"
@@ -78,6 +81,7 @@
             android:id="@+id/tvId2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/tvColor"
             android:text="테스트"
             android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@id/ivUserImage2"

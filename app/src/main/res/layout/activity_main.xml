@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bgLayout"
     tools:context=".SingInActivity">
 
     <EditText
@@ -40,9 +40,9 @@
         android:layout_width="307dp"
         android:layout_height="47dp"
         android:layout_marginTop="68dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/tvColor"
         android:text="@string/login"
-        android:textColor="@color/white"
+        android:textColor="@color/tvColorReverse"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/etPw"
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,6 +51,7 @@
 
     <TextView
         android:id="@+id/loginTop"
+        android:textColor="@color/tvColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
@@ -66,13 +67,14 @@
         android:layout_width="306dp"
         android:layout_height="51dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/tvColor"
         android:text="@string/signUp"
-        android:textColor="@color/white"
+        android:textColor="@color/tvColorReverse"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/btnSighIn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnSighIn"
         app:layout_constraintTop_toBottomOf="@+id/btnSighIn" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
