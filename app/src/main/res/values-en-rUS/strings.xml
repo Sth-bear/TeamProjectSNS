@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TeamProject1</string>
+    <string name="signUp">Sign up</string>
+    <string name="logOut">Sign out</string>
+    <string name="pwdHint">Password</string>
+    <string name="eMailHint">E-mail</string>
+    <string name="idHint">ID</string>
+    <string name="nameHint">Name</string>
+    <string name="singUpTop">SignUp</string>
+    <string name="loginTop">SignIn</string>
+    <string name="login">Sign in</string>
+</resources>

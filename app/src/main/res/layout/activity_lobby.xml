@@ -25,11 +25,11 @@
 
             <TextView
                 android:id="@+id/tvLobbyTop"
-                android:textColor="@color/tvColor"
                 android:layout_width="150dp"
                 android:layout_height="38dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="11조 SNS 앱"
+                android:textColor="@color/tvColor"
                 android:textSize="24sp" />
 
             <FrameLayout
@@ -66,44 +66,60 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="106dp"
-                    android:orientation="horizontal">
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:src = "@drawable/test1_user_image"
-                        android:id="@+id/ivToDetail1"
-                        android:layout_width="87dp"
-                        android:layout_height="84dp"
-                        android:background="@drawable/circle" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="106dp"
+                        android:orientation="horizontal">
 
-                    <FrameLayout
-                        android:layout_width="39dp"
-                        android:layout_height="89dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ivToDetail1"
+                            android:layout_width="87dp"
+                            android:layout_height="84dp"
+                            android:layout_marginEnd="30dp"
+                            android:src="@drawable/test1_user_image"
+                            android:background="@drawable/circle" />
 
-                    </FrameLayout>
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:src = "@drawable/test"
-                        android:id="@+id/ivToDetail3"
-                        android:layout_width="82dp"
-                        android:layout_height="84dp"
-                        app:srcCompat="@drawable/profilecircle" />
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ivToDetail2"
+                            android:layout_width="82dp"
+                            android:layout_height="84dp"
+                            android:layout_marginEnd="30dp"
+                            android:src="@drawable/test"
+                            app:srcCompat="@drawable/profilecircle" />
 
-                    <FrameLayout
-                        android:layout_width="38dp"
-                        android:layout_height="82dp">
 
-                    </FrameLayout>
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ivToDetail3"
+                            android:layout_width="90dp"
+                            android:layout_height="84dp"
+                            android:layout_marginEnd="30dp"
+                            android:src="@drawable/test"
+                            app:srcCompat="@drawable/profilecircle" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:src = "@drawable/test"
-                        android:id="@+id/ivToDetail2"
-                        android:layout_width="90dp"
-                        android:layout_height="84dp"
-                        app:srcCompat="@drawable/profilecircle" />
-                </LinearLayout>
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ivToDetail4"
+                            android:layout_width="90dp"
+                            android:layout_height="84dp"
+                            android:layout_marginEnd="30dp"
+                            android:src="@drawable/test"
+                            app:srcCompat="@drawable/profilecircle" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ivToDetail5"
+                            android:layout_width="90dp"
+                            android:layout_height="84dp"
+                            android:layout_marginEnd="30dp"
+                            android:src="@drawable/test"
+                            app:srcCompat="@drawable/profilecircle" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,19 +127,19 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:src = "@drawable/test"
                         android:id="@+id/ivUserImage"
                         android:layout_width="42dp"
                         android:layout_height="45dp"
+                        android:src="@drawable/test"
                         app:srcCompat="@drawable/profilecircle" />
 
                     <TextView
                         android:id="@+id/tvId"
-                        android:textColor="@color/tvColor"
                         android:layout_width="306dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="아이디" />
+                        android:text="아이디"
+                        android:textColor="@color/tvColor" />
                 </LinearLayout>
 
                 <ImageView
@@ -146,11 +162,11 @@
 
                     <TextView
                         android:id="@+id/tvId2"
-                        android:textColor="@color/tvColor"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="아이디" />
+                        android:text="아이디"
+                        android:textColor="@color/tvColor" />
                 </LinearLayout>
 
                 <ImageView
@@ -173,11 +189,11 @@
 
                     <TextView
                         android:id="@+id/tvId3"
-                        android:textColor="@color/tvColor"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="아이디" />
+                        android:text="아이디"
+                        android:textColor="@color/tvColor" />
                 </LinearLayout>
 
                 <ImageView
