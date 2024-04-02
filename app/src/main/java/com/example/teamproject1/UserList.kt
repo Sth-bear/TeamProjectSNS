@@ -1,11 +1,13 @@
 package com.example.teamproject1
 
-import android.content.Context
-
 object UserList {
     val userList = mutableListOf<UserInfo>(
         UserInfo(username = "name1", id = "test", email = "email1", password = "1234"),
-        UserInfo(username = "name2", id = "id2", email = "email2", password = "password2")
+        UserInfo(username = "name2", id = "id2", email = "email2", password = "password2"),
+        UserInfo(username = "전지우", id = "test1", email = "test1@email.com", password = "1234"),
+        UserInfo(username = "한정혁", id = "test2", email = "test2@email.com", password = "1234"),
+        UserInfo(username = "설희아", id = "test3", email = "test3@email.com", password = "1234"),
+        UserInfo(username = "한우영", id = "test4", email = "test4@email.com", password = "1234"),
     )
 
     fun addUser(username: String, id: String, email:String, password:String){
@@ -21,5 +23,8 @@ object UserList {
         return!userList.any { it.email == email }
     }
 
+    fun checkName(id: String): String? {
+        return userList.find { it.id == id }?.username
+    }
 
 }
