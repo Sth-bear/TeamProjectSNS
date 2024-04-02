@@ -72,11 +72,11 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:src = "@drawable/test"
+                        android:src = "@drawable/test1_user_image"
                         android:id="@+id/ivToDetail1"
                         android:layout_width="87dp"
                         android:layout_height="84dp"
-                        app:srcCompat="@drawable/profilecircle" />
+                        android:background="@drawable/circle" />
 
                     <FrameLayout
                         android:layout_width="39dp"
