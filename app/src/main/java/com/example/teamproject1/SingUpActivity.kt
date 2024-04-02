@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import com.example.teamproject1.UserList.addUser
 import com.example.teamproject1.UserList.checkEmail
 import com.example.teamproject1.UserList.checkId
@@ -35,7 +36,9 @@ class SingUpActivity : AppCompatActivity() {
                                 email = binding.etEmail.text.toString()
                             )
                             val intent = Intent(this, SingInActivity::class.java)
-                            startActivity(intent)
+                            intent.putExtra("id", binding.etId.text.toString())
+                            intent.putExtra("pw", binding.etPW.text.toString() )
+                            setResult(RESULT_OK, intent)
                             finish()
                         } else {
                             Toast.makeText(this, "이미 사용중인 Email입니다.", Toast.LENGTH_SHORT).show()
