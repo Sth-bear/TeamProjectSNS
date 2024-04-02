@@ -18,6 +18,7 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         //환경설정 팝업
         binding.btnSetUp.setOnClickListener {
             val popupMenu = PopupMenu(this, it)
@@ -51,7 +52,6 @@ class LobbyActivity : AppCompatActivity() {
             }
             popupMenu.show()
         }
-
         binding.ivPostImage.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
