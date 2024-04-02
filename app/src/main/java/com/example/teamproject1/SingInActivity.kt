@@ -1,5 +1,6 @@
 package com.example.teamproject1
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,6 +32,7 @@ class SingInActivity : AppCompatActivity() {
                 }
         }
 
+
         binding.btnSighIn.setOnClickListener {
 
             if(login(id = binding.etId.text.toString(), password = binding.etPw.text.toString())) {
@@ -46,14 +48,17 @@ class SingInActivity : AppCompatActivity() {
         binding.btnSighUp.setOnClickListener {
             val intent = Intent(this, SingUpActivity::class.java)
             activityResultLauncher.launch(intent)
+
         }
     }
+
+    private fun login(id: String, password: String): Boolean {
+        for (user in userList) {
+            if (user.id == id && user.password == password)
+                return true
+        }
+        return false
+    }
+
 }
 
-fun login(id:String, password: String):Boolean {
-    for (user in userList) {
-        if(user.id == id && user.password == password)
-            return true
-    }
-    return false
-}

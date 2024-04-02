@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgLayout"
     tools:context=".MyPageActivity">
 
     <ImageView
@@ -25,6 +26,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="90dp"
         android:textSize="24sp"
+        android:textColor="@color/tvColor"
         android:text="이름"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivBackground" />
@@ -35,6 +37,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/tvColor"
         android:textSize="24sp"
         android:text="연락처"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +49,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/tvColor"
         android:textSize="24sp"
         android:text="아이디"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +61,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/tvColor"
         android:text="E-MAIL"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,19 +72,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
+        android:backgroundTint="@color/tvColor"
         android:text="@string/logOut"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivUserImage"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginTop="135dp"
         android:background="@drawable/mypage_user_image"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bgLayout"
     tools:context=".LobbyActivity">
 
 
@@ -25,6 +25,7 @@
 
             <TextView
                 android:id="@+id/tvLobbyTop"
+                android:textColor="@color/tvColor"
                 android:layout_width="150dp"
                 android:layout_height="38dp"
                 android:fontFamily="sans-serif-medium"
@@ -38,10 +39,10 @@
             </FrameLayout>
 
             <ImageView
-                android:id="@+id/ivSetUp"
-                android:layout_width="35dp"
-                android:layout_height="37dp"
-                app:srcCompat="@drawable/ivsetup" />
+                android:id="@+id/ivmyPage"
+                android:layout_width="31dp"
+                android:layout_height="38dp"
+                app:srcCompat="@drawable/ivmypage" />
 
             <FrameLayout
                 android:layout_width="14dp"
@@ -50,10 +51,10 @@
             </FrameLayout>
 
             <ImageView
-                android:id="@+id/ivmyPage"
-                android:layout_width="31dp"
-                android:layout_height="38dp"
-                app:srcCompat="@drawable/ivmypage" />
+                android:id="@+id/btnSetUp"
+                android:layout_width="35dp"
+                android:layout_height="37dp"
+                app:srcCompat="@drawable/ivsetup" />
         </LinearLayout>
 
         <ScrollView
@@ -118,6 +119,7 @@
 
                     <TextView
                         android:id="@+id/tvId"
+                        android:textColor="@color/tvColor"
                         android:layout_width="306dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -144,6 +146,7 @@
 
                     <TextView
                         android:id="@+id/tvId2"
+                        android:textColor="@color/tvColor"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -170,6 +173,7 @@
 
                     <TextView
                         android:id="@+id/tvId3"
+                        android:textColor="@color/tvColor"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"

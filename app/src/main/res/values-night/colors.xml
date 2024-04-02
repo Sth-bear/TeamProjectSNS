@@ -3,8 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="bgLayout">#FFFFFFFF</color>
-    <color name="tvColor">#FF000000</color>
-    <color name="tvColorReverse">#FFFFFFFF</color>
-
+    <color name="bgLayout">#232323</color>
+    <color name="tvColor">#FFFFFFFF</color>
+    <color name="tvColorReverse">#FF000000</color>
 </resources>
