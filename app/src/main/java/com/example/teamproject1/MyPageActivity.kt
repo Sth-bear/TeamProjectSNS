@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.teamproject1.databinding.ActivityMyPageBinding
 
 //개인정보
@@ -32,9 +34,20 @@ class MyPageActivity : AppCompatActivity() {
                         true
                     }
 
-                    else -> {
-                        //여기에 야간모드 코딩 입력해주세요
-                        Toast.makeText(this, "야간모드로 변경되었습니다", Toast.LENGTH_SHORT).show()
+                    else -> { //테마 변경
+                        val items = arrayOf("라이트 모드", "다크 모드", "사용자 지정")
+                        val builder = AlertDialog.Builder(this)
+                            .setTitle("테마 변경")
+                            .setItems(items) { _, id ->
+                                if (items[id] == "라이트 모드") {
+                                    changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
+                                } else if (items[id] == "다크 모드") {
+                                    changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
+                                } else {
+                                    changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                                }
+                            }
+                        builder.show()
                         true
                     }
                 }
