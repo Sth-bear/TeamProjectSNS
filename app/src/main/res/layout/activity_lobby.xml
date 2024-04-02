@@ -8,104 +8,184 @@
     tools:context=".LobbyActivity">
 
 
-    <TextView
-        android:id="@+id/tvLobbyTop"
-        android:layout_width="150dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="11조 SNS 앱"
-        android:textSize="24sp"
+    <LinearLayout
+        android:layout_width="353dp"
+        android:layout_height="840dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/ivSetUp"
-        android:layout_width="35dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="120dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLobbyTop"
-        app:layout_constraintStart_toEndOf="@+id/tvLobbyTop"
-        app:layout_constraintTop_toTopOf="@+id/tvLobbyTop"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ivsetup" />
+        <LinearLayout
+            android:layout_width="346dp"
+            android:layout_height="46dp"
+            android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/ivmyPage"
-        android:layout_width="31dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSetUp"
-        app:layout_constraintStart_toEndOf="@+id/ivSetUp"
-        app:layout_constraintTop_toTopOf="@+id/ivSetUp"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ivmypage" />
+            <TextView
+                android:id="@+id/tvLobbyTop"
+                android:layout_width="150dp"
+                android:layout_height="38dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="11조 SNS 앱"
+                android:textSize="24sp" />
 
-    <ImageView
-        android:id="@+id/ivToDetail1"
-        android:layout_width="107dp"
-        android:layout_height="123dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvLobbyTop"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvLobbyTop"
-        app:layout_constraintTop_toBottomOf="@+id/tvLobbyTop"
-        app:srcCompat="@drawable/profilecircle" />
+            <FrameLayout
+                android:layout_width="114dp"
+                android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivToDetail2"
-        android:layout_width="107dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivToDetail3"
-        app:layout_constraintStart_toEndOf="@+id/ivToDetail3"
-        app:layout_constraintTop_toTopOf="@+id/ivToDetail3"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/profilecircle" />
+            </FrameLayout>
 
-    <ImageView
-        android:id="@+id/ivToDetail3"
-        android:layout_width="107dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivToDetail1"
-        app:layout_constraintStart_toEndOf="@+id/ivToDetail1"
-        app:layout_constraintTop_toTopOf="@+id/ivToDetail1"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/profilecircle" />
+            <ImageView
+                android:id="@+id/ivSetUp"
+                android:layout_width="35dp"
+                android:layout_height="37dp"
+                app:srcCompat="@drawable/ivsetup" />
 
-    <ImageView
-        android:id="@+id/ivUserImage"
-        android:layout_width="42dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivToDetail1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ivToDetail1"
-        app:layout_constraintTop_toBottomOf="@+id/ivToDetail1"
-        app:srcCompat="@drawable/profilecircle" />
+            <FrameLayout
+                android:layout_width="14dp"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="아이디"
-        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
-        app:layout_constraintStart_toEndOf="@+id/ivUserImage"
-        app:layout_constraintTop_toTopOf="@+id/ivUserImage" />
+            </FrameLayout>
 
-    <ImageView
-        android:id="@+id/ivPostImage"
-        android:layout_width="386dp"
-        android:layout_height="387dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivUserImage"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="@+id/ivUserImage"
-        app:layout_constraintTop_toBottomOf="@+id/ivUserImage"
-        app:srcCompat="@drawable/imagerectangle" />
+            <ImageView
+                android:id="@+id/ivmyPage"
+                android:layout_width="31dp"
+                android:layout_height="38dp"
+                app:srcCompat="@drawable/ivmypage" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="106dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src = "@drawable/test"
+                        android:id="@+id/ivToDetail1"
+                        android:layout_width="87dp"
+                        android:layout_height="84dp"
+                        app:srcCompat="@drawable/profilecircle" />
+
+                    <FrameLayout
+                        android:layout_width="39dp"
+                        android:layout_height="89dp">
+
+                    </FrameLayout>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src = "@drawable/test"
+                        android:id="@+id/ivToDetail3"
+                        android:layout_width="82dp"
+                        android:layout_height="84dp"
+                        app:srcCompat="@drawable/profilecircle" />
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="82dp">
+
+                    </FrameLayout>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src = "@drawable/test"
+                        android:id="@+id/ivToDetail2"
+                        android:layout_width="90dp"
+                        android:layout_height="84dp"
+                        app:srcCompat="@drawable/profilecircle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src = "@drawable/test"
+                        android:id="@+id/ivUserImage"
+                        android:layout_width="42dp"
+                        android:layout_height="45dp"
+                        app:srcCompat="@drawable/profilecircle" />
+
+                    <TextView
+                        android:id="@+id/tvId"
+                        android:layout_width="306dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="아이디" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivPostImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="365dp"
+                    app:srcCompat="@drawable/imagerectangle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivUserImage2"
+                        android:layout_width="42dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/test"
+                        app:srcCompat="@drawable/profilecircle" />
+
+                    <TextView
+                        android:id="@+id/tvId2"
+                        android:layout_width="205dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="아이디" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivPostImage3"
+                    android:layout_width="match_parent"
+                    android:layout_height="365dp"
+                    app:srcCompat="@drawable/imagerectangle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivUserImage3"
+                        android:layout_width="42dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/test"
+                        app:srcCompat="@drawable/profilecircle" />
+
+                    <TextView
+                        android:id="@+id/tvId3"
+                        android:layout_width="205dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="아이디" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivPostImage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="365dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/imagerectangle" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
