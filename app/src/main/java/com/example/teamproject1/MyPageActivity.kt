@@ -18,6 +18,8 @@ class MyPageActivity : AppCompatActivity() {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        overrideActivityTransition(OVERRIDE_TRANSITION_OPEN,R.anim.slide_right_enter,R.anim.slide_none)
+        setUpLogOut()
         
 
 
@@ -58,8 +60,7 @@ class MyPageActivity : AppCompatActivity() {
         //뒤로가기 버튼
         binding.btnBack.setOnClickListener{
             val intent = Intent(this, LobbyActivity::class.java)
-            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN,R.anim.slide_right_enter,R.anim.slide_none)
-            setUpLogOut()
+            finish()
         }
 
     }
