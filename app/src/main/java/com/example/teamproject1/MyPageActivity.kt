@@ -67,8 +67,8 @@ class MyPageActivity : AppCompatActivity() {
     private fun setUpLogOut() {
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SingInActivity::class.java)
-            finishAffinity()
             startActivity(intent)
+            finishAffinity()
         }
     }
 
