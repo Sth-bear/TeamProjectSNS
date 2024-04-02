@@ -16,6 +16,7 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         //환경설정 팝업
         binding.btnSetUp.setOnClickListener {
             val popupMenu = PopupMenu(this, it)
@@ -39,8 +40,13 @@ class LobbyActivity : AppCompatActivity() {
             popupMenu.show()
         }
 
-        //마이페이지 버튼
-        binding.ivmyPage.setOnClickListener{
+
+        binding.ivPostImage.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            startActivity(intent)
+        }
+        binding.ivmyPage.setOnClickListener {
+
             val intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
         }

@@ -1,5 +1,7 @@
 package com.example.teamproject1
 
+import android.content.Context
+
 object UserList {
     val userList = mutableListOf<UserInfo>(
         UserInfo(username = "name1", id = "test", email = "email1", password = "1234"),
@@ -10,5 +12,14 @@ object UserList {
         val newUser = UserInfo(username, id, email, password)
         userList.add(newUser)
     }
+
+    fun checkId(id:String):Boolean {
+        return !userList.any {it.id == id}
+    }
+
+    fun checkEmail(email:String):Boolean {
+        return!userList.any { it.email == email }
+    }
+
 
 }
