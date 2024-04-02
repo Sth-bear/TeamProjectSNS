@@ -14,7 +14,7 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val id = intent.getStringExtra("ID")
+        val id = intent.getStringExtra("loginId")
         val username = intent.getStringExtra("NAME")
         val email = intent.getStringExtra("EMAIL")
 
