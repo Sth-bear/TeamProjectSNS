@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bgLayout"
     tools:context=".LobbyActivity">
 
 
@@ -25,6 +25,7 @@
 
             <TextView
                 android:id="@+id/tvLobbyTop"
+                android:textColor="@color/tvColor"
                 android:layout_width="150dp"
                 android:layout_height="38dp"
                 android:fontFamily="sans-serif-medium"
@@ -118,6 +119,7 @@
 
                     <TextView
                         android:id="@+id/tvId"
+                        android:textColor="@color/tvColor"
                         android:layout_width="306dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -144,6 +146,7 @@
 
                     <TextView
                         android:id="@+id/tvId2"
+                        android:textColor="@color/tvColor"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -170,6 +173,7 @@
 
                     <TextView
                         android:id="@+id/tvId3"
+                        android:textColor="@color/tvColor"
                         android:layout_width="205dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
