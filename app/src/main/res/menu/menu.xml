@@ -1,6 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_menu1"
@@ -8,6 +7,5 @@
     <item
         android:id="@+id/action_menu2"
         android:title="야간모드" />
-
 
 </menu>
