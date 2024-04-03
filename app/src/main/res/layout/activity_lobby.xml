@@ -59,7 +59,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvUserId"
+                        android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
@@ -69,6 +69,16 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/tvHello"
                         app:layout_constraintTop_toBottomOf="@+id/tvHello" />
+
+                    <TextView
+                        android:id="@+id/tvSir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize = "20sp"
+                        android:textStyle="bold"
+                        android:text="@string/sir"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvUserName"
+                        app:layout_constraintStart_toEndOf="@+id/tvUserName" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
@@ -95,11 +105,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvId1"
+                        android:id="@+id/tvName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:text="아이디"
+                        android:text="이름"
                         android:textColor="@color/tvColor"
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage1"
@@ -139,11 +149,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvId2"
+                        android:id="@+id/tvName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:text="아이디"
+                        android:text="이름"
                         android:textColor="@color/tvColor"
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage2"
@@ -182,11 +192,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvId3"
+                        android:id="@+id/tvName3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:text="아이디"
+                        android:text="이름"
                         android:textColor="@color/tvColor"
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage3"
@@ -194,7 +204,7 @@
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage3"
                         app:layout_constraintVertical_bias="0.47" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/ivDetail3"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"

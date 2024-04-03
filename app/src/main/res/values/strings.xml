@@ -10,4 +10,5 @@
     <string name="loginTop">Login</string>
     <string name="login">로그인</string>
     <string name="hello">안녕하세요</string>
+    <string name="sir">님</string>
 </resources>
