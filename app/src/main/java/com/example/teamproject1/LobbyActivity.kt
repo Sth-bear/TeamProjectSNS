@@ -22,6 +22,7 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         val loginId = intent.getStringExtra("loginId") //
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
         userList.find{it.id == loginId}?.userImage?.let { binding.ivToMyPage.setImageResource(it) }
@@ -36,7 +37,6 @@ class LobbyActivity : AppCompatActivity() {
             intent.putExtra("userId","test2" )
             startActivity(intent)
         }
-
         val(page2UserName,page2UserImage,page2PostImage) = showInfo("test3")
         binding.tvName2.text = page2UserName
         binding.ivUserImage2.setImageResource(page2UserImage)
@@ -56,8 +56,6 @@ class LobbyActivity : AppCompatActivity() {
             intent.putExtra("userId", "test4")
             startActivity(intent)
         }
-
-
 
         binding.ivToMyPage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
