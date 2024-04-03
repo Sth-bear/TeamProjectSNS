@@ -34,7 +34,6 @@ class SingInActivity : AppCompatActivity() {
 
 
         binding.btnSighIn.setOnClickListener {
-
             if(login(id = binding.etId.text.toString(), password = binding.etPw.text.toString())) {
                 val intent = Intent(this, LobbyActivity::class.java)
                 intent.putExtra("loginId", binding.etId.text.toString())

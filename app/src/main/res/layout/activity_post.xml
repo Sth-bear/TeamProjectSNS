@@ -87,14 +87,12 @@
 
                 <TextView
                     android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:paddingEnd="10dp"
                     tools:text="오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요.오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요.오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요."
                     android:textSize="15sp"
                     android:textStyle="bold"
