@@ -8,6 +8,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityMyPageBinding
 
 //개인정보
@@ -21,6 +22,11 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(view)
         animationOpen()
         setUpLogOut()
+
+        val loginId = intent.getStringExtra("loginId")
+        binding.tvId.text = loginId
+        binding.tvEmail.text = userList.find{it.id == loginId}?.email
+        userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
 
 
         //환경설정 팝업
