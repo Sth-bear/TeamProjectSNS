@@ -1,6 +1,7 @@
 package com.example.teamproject1
 
 import android.app.Activity
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.teamproject1.databinding.ActivityDetailBinding
@@ -16,13 +17,16 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        //animation open
-        overrideActivityTransition(Activity.OVERRIDE_TRANSITION_OPEN, R.anim.slide_right_enter, R.anim.slide_none)
+        if (Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(Activity.OVERRIDE_TRANSITION_OPEN, R.anim.slide_right_enter, R.anim.slide_none)
+        } else {
+            overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_none)
+        }
 
         val userId = intent.getStringExtra("userId")
         val userName = userId?.let { checkName(it) }
-        val userImage =  userList.find{it .id == userId}?.userImage
-        val userIntro = userList.find{it.id == userId}?.userIntro
+        val userImage = userList.find { it.id == userId }?.userImage
+        val userIntro = userList.find { it.id == userId }?.userIntro
 
         if (userImage != null) {
             binding.ivUserImage.setImageResource(userImage)
@@ -34,15 +38,11 @@ class DetailActivity : AppCompatActivity() {
         binding.tvId.text = userId
         binding.tvId2.text = userId
 
-        postList.find { it.id == userId}?.image?.let { binding.ivDetail.setImageResource(it) }
+        postList.find { it.id == userId }?.image?.let { binding.ivDetail.setImageResource(it) }
 
         binding.btnBack.setOnClickListener {
             finish()
         }
-
-
-
-
 
 
     }
@@ -50,6 +50,10 @@ class DetailActivity : AppCompatActivity() {
     override fun finish() {
         super.finish()
         //animation close
-        overrideActivityTransition(Activity.OVERRIDE_TRANSITION_CLOSE, R.anim.slide_none, R.anim.slide_right_exit)
+        if (Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(Activity.OVERRIDE_TRANSITION_CLOSE, R.anim.slide_none, R.anim.slide_right_exit)
+        } else {
+            overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
+        }
     }
 }
