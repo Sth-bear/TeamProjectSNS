@@ -5,7 +5,7 @@ object UserList {
         UserInfo(username = "name1", id = "test", email = "email1", password = "1234", userImage = R.drawable.test, userIntro = "안녕하세요"),
         UserInfo(username = "name2", id = "id2", email = "email2", password = "password2", userImage = R.drawable.test, userIntro = "안녕하세요" ),
         UserInfo(username = "전지우", id = "test1", email = "test1@email.com", password = "1234", userImage = R.drawable.test1_user_image, userIntro = "안녕하세요. 전지우입니다."),
-        UserInfo(username = "한정혁", id = "test2", email = "test2@email.com", password = "1234", userImage = R.drawable.test, userIntro = "안녕하세요"),
+        UserInfo(username = "한정혁", id = "test2", email = "test2@email.com", password = "1234", userImage = R.drawable.iv_example2, userIntro = "안녕하세요"),
         UserInfo(username = "설희아", id = "test3", email = "test3@email.com", password = "1234", userImage = R.drawable.test, userIntro = "안녕하세요"),
         UserInfo(username = "한우영", id = "test4", email = "test4@email.com", password = "1234", userImage = R.drawable.test, userIntro = "안녕하세요"),
     )
