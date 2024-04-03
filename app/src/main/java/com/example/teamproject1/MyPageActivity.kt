@@ -1,6 +1,7 @@
 package com.example.teamproject1
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.PopupMenu
@@ -18,9 +19,8 @@ class MyPageActivity : AppCompatActivity() {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        overrideActivityTransition(OVERRIDE_TRANSITION_OPEN,R.anim.slide_right_enter,R.anim.slide_none)
+        animationOpen()
         setUpLogOut()
-        
 
 
         //환경설정 팝업
@@ -58,12 +58,14 @@ class MyPageActivity : AppCompatActivity() {
         }
 
         //뒤로가기 버튼
-        binding.btnBack.setOnClickListener{
+        binding.btnBack.setOnClickListener {
             val intent = Intent(this, LobbyActivity::class.java)
             finish()
         }
 
     }
+
+
     private fun setUpLogOut() {
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SingInActivity::class.java)
@@ -74,7 +76,22 @@ class MyPageActivity : AppCompatActivity() {
 
     override fun finish() {
         super.finish()
-        overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE,R.anim.slide_none,R.anim.slide_right_exit)
+        animationClose()
     }
 
+    private fun animationOpen() {
+        if (Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, R.anim.slide_right_enter, R.anim.slide_none)
+        } else {
+            overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_none)
+        }
+    }
+
+    private fun animationClose() {
+        if (Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.slide_none, R.anim.slide_right_exit)
+        } else {
+            overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
+        }
+    }
 }
