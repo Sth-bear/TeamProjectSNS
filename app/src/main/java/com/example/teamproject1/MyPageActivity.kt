@@ -24,7 +24,7 @@ class MyPageActivity : AppCompatActivity() {
         setUpLogOut()
 
         val loginId = intent.getStringExtra("loginId")
-        binding.tvId.text = loginId
+        binding.tvName.text = userList.find{it.id == loginId}?.username
         binding.tvEmail.text = userList.find{it.id == loginId}?.email
         userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
 

@@ -20,7 +20,7 @@ class LobbyActivity : AppCompatActivity() {
         setContentView(view)
 
         val loginId = intent.getStringExtra("loginId") //
-        binding.tvUserId.text = loginId
+        binding.tvUserName.text = userList.find { it.id == loginId }?.username
         userList.find{it.id == loginId}?.userImage?.let { binding.ivToMyPage.setImageResource(it) }
 
         binding.ivDetail1.setOnClickListener {
