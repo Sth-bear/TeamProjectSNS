@@ -53,14 +53,12 @@
         app:layout_constraintStart_toStartOf="@+id/etPw"
         app:layout_constraintTop_toBottomOf="@+id/etPw" />
 
-    <TextView
+    <ImageView
         android:id="@+id/loginTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="46dp"
         android:layout_marginTop="164dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/loginTop"
-        android:textColor="@color/tvColor"
+        android:src="@drawable/toplogo"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
