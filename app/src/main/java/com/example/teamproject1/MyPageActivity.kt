@@ -1,19 +1,28 @@
 package com.example.teamproject1
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityMyPageBinding
+import java.io.IOException
 
 //개인정보
 class MyPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyPageBinding
+
+    //사진지정개수
+    companion object {
+        private const val PICK_IMAGE_REQUEST = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +36,11 @@ class MyPageActivity : AppCompatActivity() {
         binding.tvId.text = loginId
         binding.tvEmail.text = userList.find{it.id == loginId}?.email
         userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
+
+        //프로필 사진 등록 버튼
+        binding.btnProfile.setOnClickListener {
+            openGallery()
+        }
 
 
         //환경설정 팝업
@@ -71,7 +85,29 @@ class MyPageActivity : AppCompatActivity() {
 
     }
 
+    //프로필 사진 교체
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedImageUri: Uri? = data.data
+
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                binding.ivUserImage.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+
+    //로그아웃버튼
     private fun setUpLogOut() {
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SingInActivity::class.java)
