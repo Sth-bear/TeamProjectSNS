@@ -56,6 +56,7 @@
                         android:layout_marginTop="32dp"
                         android:text="@string/hello"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="@font/sf_snow_font"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -63,6 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:fontFamily="@font/chosun_font"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="@+id/tvHello"
@@ -77,6 +79,7 @@
                         android:textSize = "20sp"
                         android:textStyle="bold"
                         android:text="@string/sir"
+                        android:fontFamily="@font/sf_snow_font"
                         app:layout_constraintBottom_toBottomOf="@+id/tvUserName"
                         app:layout_constraintStart_toEndOf="@+id/tvUserName" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -112,6 +115,7 @@
                         android:text="이름"
                         android:textColor="@color/tvColor"
                         android:textSize="13sp"
+                        android:fontFamily="@font/chosun_font"
                         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage1"
                         app:layout_constraintStart_toEndOf="@+id/ivUserImage1"
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage1"
@@ -156,6 +160,7 @@
                         android:text="이름"
                         android:textColor="@color/tvColor"
                         android:textSize="13sp"
+                        android:fontFamily="@font/chosun_font"
                         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage2"
                         app:layout_constraintStart_toEndOf="@+id/ivUserImage2"
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage2" />
@@ -197,6 +202,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:text="이름"
+                        android:fontFamily="@font/chosun_font"
                         android:textColor="@color/tvColor"
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage3"

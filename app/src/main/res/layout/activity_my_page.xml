@@ -9,37 +9,40 @@
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="72dp"
-        android:layout_height="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:text=""
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/bukk_font"
         app:layout_constraintStart_toEndOf="@+id/ivUserImage"
-        app:layout_constraintTop_toTopOf="@+id/ivUserImage"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintTop_toTopOf="@+id/ivUserImage" />
 
     <TextView
         android:id="@+id/tvEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         android:text=""
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvName"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/bukk_font"
+        app:layout_constraintStart_toEndOf="@id/ivUserImage"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        />
 
     <Button
         android:id="@+id/btnLanguage"
-        android:layout_width="395dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#FFFFFF"
-        android:gravity="left"
+        android:gravity="center_vertical"
         android:radius="0dp"
         android:text="언어변경"
+        android:fontFamily="@font/sf_snow_font"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -52,12 +55,15 @@
 
     <Button
         android:id="@+id/btnTheme"
-        android:layout_width="395dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:backgroundTint="#FFFFFF"
-        android:gravity="left"
+        android:gravity ="center_vertical"
         android:radius="0dp"
         android:text="테마설정"
+        android:fontFamily="@font/sf_snow_font"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -71,12 +77,15 @@
 
     <Button
         android:id="@+id/btnLogOut"
-        android:layout_width="395dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:backgroundTint="#FFFFFF"
-        android:gravity="left"
+        android:gravity="center_vertical"
         android:radius="0dp"
         android:text="@string/logOut"
+        android:fontFamily="@font/sf_snow_font"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -101,6 +110,8 @@
 
     <ImageButton
         android:id="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/btnback" />
