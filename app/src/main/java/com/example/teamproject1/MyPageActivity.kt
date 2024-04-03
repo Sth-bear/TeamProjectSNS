@@ -42,7 +42,6 @@ class MyPageActivity : AppCompatActivity() {
             openGallery()
         }
 
-
         //환경설정 팝업
         binding.btnTheme.setOnClickListener {
             val popupMenu = PopupMenu(this, it)
