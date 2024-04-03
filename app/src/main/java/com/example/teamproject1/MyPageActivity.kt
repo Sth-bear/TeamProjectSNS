@@ -24,7 +24,7 @@ class MyPageActivity : AppCompatActivity() {
 
 
         //환경설정 팝업
-        binding.btnSetUp.setOnClickListener {
+        binding.btnTheme.setOnClickListener {
             val popupMenu = PopupMenu(this, it)
             popupMenu.menuInflater.inflate(R.menu.menu, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener { menuItem ->

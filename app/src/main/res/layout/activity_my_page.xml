@@ -57,7 +57,7 @@
         android:backgroundTint="#FFFFFF"
         android:gravity="left"
         android:radius="0dp"
-        android:text="@string/logOut"
+        android:text="테마설정"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btnLogOut"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnLogOut"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogOut" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
 
     <Button
         android:id="@+id/btnLogOut"
@@ -76,7 +76,7 @@
         android:backgroundTint="#FFFFFF"
         android:gravity="left"
         android:radius="0dp"
-        android:text="야간모드"
+        android:text="@string/logOut"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -84,8 +84,9 @@
         app:iconPadding="20dp"
         app:iconTint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/btnLanguage"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btnLanguage"
-        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTheme" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivUserImage"
