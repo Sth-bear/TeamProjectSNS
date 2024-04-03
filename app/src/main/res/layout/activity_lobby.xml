@@ -117,7 +117,7 @@
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage1"
                         app:layout_constraintVertical_bias="0.382" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/ivDetail1"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
@@ -160,7 +160,7 @@
                         app:layout_constraintStart_toEndOf="@+id/ivUserImage2"
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage2" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/ivDetail2"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
@@ -204,7 +204,7 @@
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage3"
                         app:layout_constraintVertical_bias="0.47" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/ivDetail3"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
