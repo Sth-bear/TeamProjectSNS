@@ -2,6 +2,7 @@ package com.example.teamproject1
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,10 @@ class MyPageActivity : AppCompatActivity() {
         binding.tvName.text = userList.find{it.id == loginId}?.username
         binding.tvEmail.text = userList.find{it.id == loginId}?.email
         userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
+
+        if (Global.img != null) {
+            binding.ivUserImage.setImageBitmap(Global.img as Bitmap)
+        }
 
         //프로필 사진 등록 버튼
         binding.btnProfile.setOnClickListener {
@@ -79,6 +84,8 @@ class MyPageActivity : AppCompatActivity() {
         //뒤로가기 버튼
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, LobbyActivity::class.java)
+            intent.putExtra("loginId", loginId)
+            startActivity(intent)
             finish()
         }
 
@@ -98,6 +105,7 @@ class MyPageActivity : AppCompatActivity() {
 
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                Global.img = bitmap
                 binding.ivUserImage.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
