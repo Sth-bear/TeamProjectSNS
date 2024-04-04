@@ -123,7 +123,6 @@
                         android:layout_height="400dp"
                         android:layout_marginTop="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +165,6 @@
                         android:layout_height="400dp"
                         android:layout_marginTop="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -204,13 +202,12 @@
                         app:layout_constraintTop_toTopOf="@+id/ivUserImage3"
                         app:layout_constraintVertical_bias="0.47" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/ivDetail3"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
                         android:layout_marginTop="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
