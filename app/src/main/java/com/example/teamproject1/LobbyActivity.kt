@@ -1,6 +1,7 @@
 package com.example.teamproject1
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.teamproject1.UserList.userList
@@ -20,8 +21,15 @@ class LobbyActivity : AppCompatActivity() {
 
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
-        userList.find { it.id == loginId }?.userImage?.let { binding.ivToMyPage.setImageResource(it) }
-
+        if (Global.img != null) {
+            binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == loginId }?.userImage?.let {
+                binding.ivToMyPage.setImageResource(
+                    it
+                )
+            }
+        }
         initPost()
         /*
                 //1번게시글
@@ -60,6 +68,7 @@ class LobbyActivity : AppCompatActivity() {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)
             startActivity(intent)
+            finish()
         }
     }
 
