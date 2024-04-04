@@ -19,16 +19,24 @@ class PostActivity : AppCompatActivity() {
         binding = ActivityPostBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        setViewMore()
 
-        val writerId = intent.getStringExtra("userId").toString()
-
-        //예시 text입니다. 지우시고 사용하세요.
+/*        val writerId = intent.getStringExtra("userId").toString()
         binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
         val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
         binding.ivUserImage.setImageResource(pageUserImage)
         binding.tvName.text = pageUserName
-        binding.ivPostImage.setImageResource(pagePostImage)
-        setViewMore()
+        binding.ivPostImage.setImageResource(pagePostImage)*/
+
+        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
+        selectedPost?.let { putEachData(it) }
+
+    }
+    private fun putEachData(post:PostInfo){
+        binding.ivUserImage.setImageResource(post.userImage)
+        binding.tvName.text = post.name
+        binding.ivPostImage.setImageResource(post.image)
+        binding.tvTitle.text = post.postContent
     }
 
     private fun setViewMore() {

@@ -36,7 +36,6 @@ class SingUpActivity : AppCompatActivity() {
                     if (checkId(id = inputId)) { // id중복체크
                         if (checkEmail(email = inputEmail)) {//email중복체크
                             addUser(username = inputName, id = inputId, password = inputPW, email = inputEmail)
-//                            val intent = Intent(this, SingInActivity::class.java) // ??
                             pushUserInfo(inputId, inputPW) // 아이디,비밀번호 SignIn페이지로 넘기기
                         } else {
                             Toast.makeText(this, "이미 사용중인 Email입니다.", Toast.LENGTH_SHORT).show()
@@ -51,6 +50,7 @@ class SingUpActivity : AppCompatActivity() {
         }
     }
     private fun pushUserInfo(id: String, pw: String) {
+        val intent = Intent(this, SingInActivity::class.java)
         intent.putExtra("id", id)
         intent.putExtra("pw", pw)
         setResult(RESULT_OK, intent)

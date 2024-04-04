@@ -1,5 +1,7 @@
 package com.example.teamproject1
 
+import java.io.Serializable
+
 data class PostInfo(
     val postIndex: Int,
     val id: String,
@@ -7,7 +9,7 @@ data class PostInfo(
     val postContent: String,
     val name: String,
     val userImage: Int
-)
+) : Serializable
 
 object PostList {
     private var nextIndex: Int = 1
