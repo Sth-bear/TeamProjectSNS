@@ -22,9 +22,7 @@ class LobbyActivity : AppCompatActivity() {
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
         userList.find { it.id == loginId }?.userImage?.let { binding.ivToMyPage.setImageResource(it) }
 
-
         initPost()
-
         /*
                 //1번게시글
                 val (page1UserName,page1UserImage,page1PostImage) = showInfo("test2")
@@ -58,8 +56,6 @@ class LobbyActivity : AppCompatActivity() {
                     startActivity(intent)
                 }*/
 
-
-
         binding.ivToMyPage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)
@@ -70,8 +66,8 @@ class LobbyActivity : AppCompatActivity() {
     private fun initPost() {
         val postList = PostList.postList
         adapter = ListAdapter(this, postList) //initAdapter
-        binding.postListView.adapter = adapter
-        binding.postListView.setOnItemClickListener { _, _, position, _ -> //parent, view, position, id
+        binding.postListView?.adapter = adapter
+        binding.postListView?.setOnItemClickListener { _, _, position, _ -> //parent, view, position, id
             val selectedPost = postList[position]
             //여기서 데이터 넘김
             val intent = Intent(this, PostActivity::class.java).apply {
@@ -80,19 +76,14 @@ class LobbyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-
-
-
-
-/*    private fun pushUserInfo(Image: Any, name: String, postImage: Any, comment: String) {
-        val intent = Intent(this, PostActivity::class.java)
-        intent.putExtra("UserImage", Image)
-        intent.putExtra("Name", name)
-        intent.putExtra("PostImage", postImage)
-        intent.putExtra("Comment", comment
-        )
-        setResult(RESULT_OK, intent)
-        finish()
-    }*/
+    /*    private fun pushUserInfo(Image: Any, name: String, postImage: Any, comment: String) {
+            val intent = Intent(this, PostActivity::class.java)
+            intent.putExtra("UserImage", Image)
+            intent.putExtra("Name", name)
+            intent.putExtra("PostImage", postImage)
+            intent.putExtra("Comment", comment
+            )
+            setResult(RESULT_OK, intent)
+            finish()
+        }*/
 }

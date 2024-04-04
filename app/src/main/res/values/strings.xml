@@ -11,4 +11,8 @@
     <string name="login">로그인</string>
     <string name="hello">안녕하세요</string>
     <string name="sir">님</string>
+    <string name="profile">프로필</string>
+    <string name="theme">테마변경</string>
+    <string name="lang">언어변경</string>
+    <string name="dark">다크모드</string>
 </resources>

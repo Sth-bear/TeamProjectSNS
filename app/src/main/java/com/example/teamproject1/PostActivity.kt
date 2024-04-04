@@ -21,12 +21,12 @@ class PostActivity : AppCompatActivity() {
         setContentView(view)
         setViewMore()
 
-//        val writerId = intent.getStringExtra("userId").toString()
-//        binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
-//        val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
-//        binding.ivUserImage.setImageResource(pageUserImage)
-//        binding.tvName.text = pageUserName
-//        binding.ivPostImage.setImageResource(pagePostImage)
+/*        val writerId = intent.getStringExtra("userId").toString()
+        binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
+        val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
+        binding.ivUserImage.setImageResource(pageUserImage)
+        binding.tvName.text = pageUserName
+        binding.ivPostImage.setImageResource(pagePostImage)*/
 
         val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
         selectedPost?.let { putEachData(it) }
@@ -38,8 +38,6 @@ class PostActivity : AppCompatActivity() {
         binding.ivPostImage.setImageResource(post.image)
         binding.tvTitle.text = post.postContent
     }
-
-
 
     private fun setViewMore() {
         val tvTitle = binding.tvTitle //게시글
