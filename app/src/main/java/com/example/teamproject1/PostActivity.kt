@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.teamproject1.PostList.postList
+import com.example.teamproject1.PostList.showInfo
 import com.example.teamproject1.databinding.ActivityMainBinding
 import com.example.teamproject1.databinding.ActivityPostBinding
 
@@ -17,9 +19,15 @@ class PostActivity : AppCompatActivity() {
         binding = ActivityPostBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val writerId = intent.getStringExtra("userId").toString()
+
         //예시 text입니다. 지우시고 사용하세요.
-        binding.tvTitle.text = "오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요.오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요.오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요."
-//        binding.tvTitle.text = "오늘 날씨가 엄청 덥네요!"
+        binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
+        val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
+        binding.ivUserImage.setImageResource(pageUserImage)
+        binding.tvName.text = pageUserName
+        binding.ivPostImage.setImageResource(pagePostImage)
         setViewMore()
     }
 
