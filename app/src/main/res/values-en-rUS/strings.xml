@@ -8,6 +8,12 @@
     <string name="idHint">ID</string>
     <string name="nameHint">Name</string>
     <string name="singUpTop">SignUp</string>
-    <string name="loginTop">SignIn</string>
+    <string name="loginTop">Sign In</string>
     <string name="login">Sign in</string>
+    <string name="hello">Hello,</string>
+    <string name="sir">!</string>
+    <string name="profile">Profile</string>
+    <string name="theme">Themes</string>
+    <string name="lang">Korean version</string>
+    <string name="dark">Night mode</string>
 </resources>
