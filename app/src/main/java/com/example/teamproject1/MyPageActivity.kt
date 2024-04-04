@@ -7,8 +7,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.teamproject1.UserList.userList
@@ -118,5 +116,8 @@ class MyPageActivity : AppCompatActivity() {
         } else {
             overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
         }
+    }
+    private fun changeTheme(mode: Int) {
+        AppCompatDelegate.setDefaultNightMode(mode)
     }
 }
