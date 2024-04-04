@@ -30,7 +30,7 @@ class LobbyActivity : AppCompatActivity() {
         val (page1UserName,page1UserImage,page1PostImage) = showInfo("test2")
         binding.tvName1.text = page1UserName
         binding.ivUserImage1.setImageResource(page1UserImage)
-        binding.ivDetail1.setBackgroundResource(page1PostImage)
+        binding.ivDetail1.setImageResource(page1PostImage)
         binding.ivDetail1.setOnClickListener {
             val intent = Intent(this, PostActivity::class.java)
             intent.putExtra("userId","test2" )
@@ -39,7 +39,7 @@ class LobbyActivity : AppCompatActivity() {
         val(page2UserName,page2UserImage,page2PostImage) = showInfo("test3")
         binding.tvName2.text = page2UserName
         binding.ivUserImage2.setImageResource(page2UserImage)
-        binding.ivDetail2.setBackgroundResource(page2PostImage)
+        binding.ivDetail2.setImageResource(page2PostImage)
         binding.ivDetail2.setOnClickListener {
             val intent = Intent(this, PostActivity::class.java)
             intent.putExtra("userId", "test3")
@@ -49,7 +49,7 @@ class LobbyActivity : AppCompatActivity() {
         val(page3UserName,page3UserImage,page3PostImage) = showInfo("test4")
         binding.tvName3.text = page3UserName
         binding.ivUserImage3.setImageResource(page3UserImage)
-        binding.ivDetail3.setBackgroundResource(page3PostImage)
+        binding.ivDetail3.setImageResource(page3PostImage)
         binding.ivDetail3.setOnClickListener {
             val intent = Intent(this, PostActivity::class.java)
             intent.putExtra("userId", "test4")
