@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="840dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            app:srcCompat="@drawable/toplogo" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivToMyPage"
+                        android:layout_width="67dp"
+                        android:layout_height="68dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/test"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/profilecircle" />
+
+                    <TextView
+                        android:id="@+id/tvHello"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/hello"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/tvHello"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/tvHello"
+                        app:layout_constraintTop_toBottomOf="@+id/tvHello" />
+
+                    <TextView
+                        android:id="@+id/tvSir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sir"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvUserName"
+                        app:layout_constraintStart_toEndOf="@+id/tvUserName" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/ivPopUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="169dp"
+                    app:srcCompat="@drawable/popup" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:scrollbars="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivUserImage1"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/circle"
+                        android:src="@drawable/test"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvName1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="이름"
+                        android:textColor="@color/tvColor"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage1"
+                        app:layout_constraintStart_toEndOf="@+id/ivUserImage1"
+                        app:layout_constraintTop_toTopOf="@+id/ivUserImage1"
+                        app:layout_constraintVertical_bias="0.382" />
+
+                    <ImageButton
+                        android:id="@+id/ivDetail1"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/test"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivUserImage1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:scrollbars="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivUserImage2"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/circle"
+                        android:src="@drawable/test"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="이름"
+                        android:textColor="@color/tvColor"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage2"
+                        app:layout_constraintStart_toEndOf="@+id/ivUserImage2"
+                        app:layout_constraintTop_toTopOf="@+id/ivUserImage2" />
+
+                    <ImageButton
+                        android:id="@+id/ivDetail2"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/test"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivUserImage2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:scrollbars="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivUserImage3"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/circle"
+                        android:src="@drawable/test"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="이름"
+                        android:textColor="@color/tvColor"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage3"
+                        app:layout_constraintStart_toEndOf="@+id/ivUserImage3"
+                        app:layout_constraintTop_toTopOf="@+id/ivUserImage3"
+                        app:layout_constraintVertical_bias="0.47" />
+
+                    <ImageButton
+                        android:id="@+id/ivDetail3"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/test"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivUserImage3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
