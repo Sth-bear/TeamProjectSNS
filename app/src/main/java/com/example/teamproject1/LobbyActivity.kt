@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.Toast
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityLobbyBinding
 import com.example.teamproject1.listview.ListAdapter
@@ -39,7 +40,6 @@ class LobbyActivity : AppCompatActivity() {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)
             startActivity(intent)
-            finish()
         }
     }
 
@@ -63,4 +63,19 @@ class LobbyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    protected override fun onResume() {
+        super.onResume()
+        if (Global.img != null) {
+            binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == Global.id }?.userImage?.let {
+                binding.ivToMyPage.setImageResource(
+                    it
+                )
+            }
+        }
+
+    }
+
 }

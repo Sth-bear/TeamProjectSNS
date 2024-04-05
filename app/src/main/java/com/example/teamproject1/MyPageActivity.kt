@@ -86,12 +86,10 @@ class MyPageActivity : AppCompatActivity() {
 
         //뒤로가기 버튼
         binding.ivBack.setOnClickListener {
-            val intent = Intent(this, LobbyActivity::class.java)
-            intent.putExtra("loginId", loginId)
-            startActivity(intent)
             finish()
         }
     }
+
     override fun finish() {
         super.finish()
         animationClose()
@@ -166,6 +164,7 @@ class MyPageActivity : AppCompatActivity() {
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SingInActivity::class.java)
             startActivity(intent)
+            Global.img = null
             finishAffinity()
         }
     }
