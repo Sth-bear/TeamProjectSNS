@@ -81,7 +81,6 @@
                 android:text="@string/sir"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/chosun_font"
                 app:layout_constraintBottom_toBottomOf="@+id/tvUserName"
                 app:layout_constraintStart_toEndOf="@+id/tvUserName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -98,16 +97,6 @@
             android:scrollbars="none"
             tools:listitem="@layout/item_post" />
 
-
     </LinearLayout>
-
-
-    <ImageView
-        android:id="@+id/ivPopUp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/popup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

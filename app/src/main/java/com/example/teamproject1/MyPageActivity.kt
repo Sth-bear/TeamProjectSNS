@@ -95,6 +95,7 @@ class MyPageActivity : AppCompatActivity() {
             finish()
         }
     }
+
     override fun finish() {
         super.finish()
         animationClose()
