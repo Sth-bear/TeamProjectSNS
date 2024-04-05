@@ -16,6 +16,8 @@ import java.io.IOException
 //개인정보
 class MyPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyPageBinding
+    private lateinit var fontChange: FontChange
+    private lateinit var fontManager: FontManager
 
     //사진지정개수
     companion object {
@@ -31,14 +33,18 @@ class MyPageActivity : AppCompatActivity() {
         setUpLogOut()
 
         val loginId = intent.getStringExtra("loginId")
-        binding.tvName.text = userList.find{it.id == loginId}?.username
-        binding.tvEmail.text = userList.find{it.id == loginId}?.email
+        binding.tvName.text = userList.find { it.id == loginId }?.username
+        binding.tvEmail.text = userList.find { it.id == loginId }?.email
         userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
 
         //프로필 사진 등록 버튼
         binding.btnProfile.setOnClickListener {
             openGallery()
         }
+
+        onClickFontButton()
+
+        fontChange = FontChange(this)
 
         changeTheme()
 
@@ -48,11 +54,13 @@ class MyPageActivity : AppCompatActivity() {
             finish()
         }
     }
+
     override fun finish() {
         super.finish()
         animationClose()
     }
-    private fun changeTheme(){
+
+    private fun changeTheme() {
         binding.btnTheme.setOnClickListener {
             val items = arrayOf("라이트 모드", "다크 모드", "시스템 지정")
             val builder = AlertDialog.Builder(this)
@@ -104,7 +112,11 @@ class MyPageActivity : AppCompatActivity() {
 
     private fun animationOpen() {
         if (Build.VERSION.SDK_INT >= 34) {
-            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, R.anim.slide_right_enter, R.anim.slide_none)
+            overrideActivityTransition(
+                OVERRIDE_TRANSITION_OPEN,
+                R.anim.slide_right_enter,
+                R.anim.slide_none
+            )
         } else {
             overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_none)
         }
@@ -112,12 +124,34 @@ class MyPageActivity : AppCompatActivity() {
 
     private fun animationClose() {
         if (Build.VERSION.SDK_INT >= 34) {
-            overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.slide_none, R.anim.slide_right_exit)
+            overrideActivityTransition(
+                OVERRIDE_TRANSITION_CLOSE,
+                R.anim.slide_none,
+                R.anim.slide_right_exit
+            )
         } else {
             overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
         }
     }
+
     private fun changeTheme(mode: Int) {
         AppCompatDelegate.setDefaultNightMode(mode)
+    }
+
+    private fun onClickFontButton() {
+        val fontOptions = arrayOf("부크크", "스노우", "조선체", "온글잎")
+        binding.btnFont.setOnClickListener {
+            fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
+                // 폰트 변경 후 저장
+                FontManager.setSelectedFont(this, selectedFont)
+                applyFontToAllViews(FontManager.getSelectedFont(this))
+
+
+            }
+        }
+    }
+    private fun applyFontToAllViews(selectedFont: String) {
+        val fontChange = FontChange(this)
+        fontChange.applyFontToTextView(selectedFont, binding.root)
     }
 }

@@ -12,11 +12,24 @@ import com.example.teamproject1.listview.ListAdapter
 class LobbyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLobbyBinding
     private lateinit var adapter: ListAdapter
+    private lateinit var fontChange: FontChange
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLobbyBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
+        fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
+
+
+//        val selectedFont = font.selectedFont
+
+        // 폰트 적용
+//        applyFontToTextView(selectedFont)
+
 
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
@@ -62,6 +75,14 @@ class LobbyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    override fun onResume() {
+        super.onResume()
+        // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
+        applyFontToAllViews(FontManager.getSelectedFont(this))
+    }
+    private fun applyFontToAllViews(selectedFont: String) {
+        fontChange.applyFontToTextView(selectedFont, findViewById(android.R.id.content))
+    }
 
     private fun initPost() {
         val postList = PostList.postList
@@ -75,7 +96,16 @@ class LobbyActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+
     }
+//    private fun applyFontToTextView(selectedFont: String?) {
+//        selectedFont?.let {
+//            // 선택한 폰트가 있다면 해당 폰트를 적용
+//            val fontChange = FontChange(this)
+//            fontChange.applyFontToTextView(it, findViewById(android.R.id.content))
+//        }
+//    }
     /*    private fun pushUserInfo(Image: Any, name: String, postImage: Any, comment: String) {
             val intent = Intent(this, PostActivity::class.java)
             intent.putExtra("UserImage", Image)

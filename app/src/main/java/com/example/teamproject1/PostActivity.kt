@@ -14,6 +14,7 @@ import com.example.teamproject1.databinding.ActivityPostBinding
 
 class PostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPostBinding
+    private lateinit var fontChange: FontChange
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostBinding.inflate(layoutInflater)
@@ -27,6 +28,9 @@ class PostActivity : AppCompatActivity() {
         binding.ivUserImage.setImageResource(pageUserImage)
         binding.tvName.text = pageUserName
         binding.ivPostImage.setImageResource(pagePostImage)*/
+
+        fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
 
         val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
         selectedPost?.let { putEachData(it) }
@@ -59,5 +63,16 @@ class PostActivity : AppCompatActivity() {
                 }
             }
         }
+
+
+
+    }
+    override fun onResume() {
+        super.onResume()
+        // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
+        applyFontToAllViews(FontManager.getSelectedFont(this))
+    }
+    private fun applyFontToAllViews(selectedFont: String) {
+        fontChange.applyFontToTextView(selectedFont, findViewById(android.R.id.content))
     }
 }
