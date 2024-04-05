@@ -73,9 +73,9 @@ class MyPageActivity : AppCompatActivity() {
 
                 when (menuItem.itemId) {
                     R.id.action_menu3 ->
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE)
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
                     R.id.action_menu4 ->
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT)
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
                 }
                 false
             }
@@ -96,15 +96,39 @@ class MyPageActivity : AppCompatActivity() {
         super.finish()
         animationClose()
     }
+
+    private fun changeScreen() {
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
+    }
+
     private fun changeTheme(){
+        val light = getText(R.string.light)
+        val dark = getText(R.string.dark)
+        val system = getText(R.string.system)
+        val theme = getText(R.string.theme)
+
         binding.btnTheme.setOnClickListener {
-            val items = arrayOf("라이트 모드", "다크 모드", "시스템 지정")
+            val items = arrayOf("$light", "$dark", "$system")
             val builder = AlertDialog.Builder(this)
-                .setTitle("테마 변경")
+                .setTitle("$theme")
                 .setItems(items) { _, id ->
-                    if (items[id] == "라이트 모드") {
+                    if (items[id] == "$light") {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
-                    } else if (items[id] == "다크 모드") {
+                    } else if (items[id] == "$dark") {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
                     } else {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)

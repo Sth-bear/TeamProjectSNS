@@ -40,7 +40,7 @@ class SingInActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "ID 또는 PW가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getText(R.string.idpw), Toast.LENGTH_SHORT).show()
             }
         }
 

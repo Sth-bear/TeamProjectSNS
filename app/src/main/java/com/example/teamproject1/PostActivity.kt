@@ -47,6 +47,8 @@ class PostActivity : AppCompatActivity() {
     private fun setViewMore() {
         val tvTitle = binding.tvTitle //게시글
         val tvMore = binding.tvMore //더보기
+        val more = getText(R.string.more)
+        val less = getText(R.string.less)
         tvTitle.post {
             val lineCount = tvTitle.layout.lineCount
             if (tvTitle.layout.getEllipsisCount(lineCount - 1) > 0) {
@@ -54,12 +56,12 @@ class PostActivity : AppCompatActivity() {
                 // 위에 코드는 ellipsize인지 아닌지 확인하는 코드입니다.
                 tvMore.visibility = View.VISIBLE // <더보기 보이기 (짧은 글에는 보일 필요가 없어서 넣었습니다.)
                 tvMore.setOnClickListener {
-                    if (tvMore.text == "더보기") {
+                    if (tvMore.text == "$more") {
                         tvTitle.maxLines = Int.MAX_VALUE
-                        tvMore.text = "접기"
+                        tvMore.text = "$less"
                     } else {
                         tvTitle.maxLines = 2
-                        tvMore.text = "더보기"
+                        tvMore.text = "$more"
                     }
                 }
             }
