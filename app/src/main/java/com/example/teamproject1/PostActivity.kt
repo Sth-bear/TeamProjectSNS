@@ -1,5 +1,7 @@
 package com.example.teamproject1
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -12,6 +14,7 @@ import com.example.teamproject1.PostList.postList
 import com.example.teamproject1.PostList.showInfo
 import com.example.teamproject1.databinding.ActivityMainBinding
 import com.example.teamproject1.databinding.ActivityPostBinding
+import java.io.Serializable
 
 class PostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPostBinding
@@ -22,22 +25,24 @@ class PostActivity : AppCompatActivity() {
         setContentView(view)
         setViewMore()
 
-/*        val writerId = intent.getStringExtra("userId").toString()
-        binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
-        val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
-        binding.ivUserImage.setImageResource(pageUserImage)
-        binding.tvName.text = pageUserName
-        binding.ivPostImage.setImageResource(pagePostImage)*/
-
-        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
-        selectedPost?.let { putEachData(it) }
-
+        /*        val writerId = intent.getStringExtra("userId").toString()
+                binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
+                val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
+                binding.ivUserImage.setImageResource(pageUserImage)
+                binding.tvName.text = pageUserName
+                binding.ivPostImage.setImageResource(pagePostImage)*/
         binding.btnBack.setOnClickListener {
             finish()
         }
 
+//        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
+        val selectedPost = intent.getParcelableExtra("selectedData", PostInfo::class.java)
+        selectedPost?.let { putEachData(it) }
+
+
     }
-    private fun putEachData(post:PostInfo){
+
+    private fun putEachData(post: PostInfo) {
         binding.ivUserImage.setImageResource(post.userImage)
         binding.tvName.text = post.name
         binding.ivPostImage.setImageResource(post.image)
@@ -65,4 +70,5 @@ class PostActivity : AppCompatActivity() {
             }
         }
     }
+
 }

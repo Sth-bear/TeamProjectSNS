@@ -1,7 +1,10 @@
 package com.example.teamproject1
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
+@Parcelize
 data class PostInfo(
     val postIndex: Int,
     val id: String,
@@ -9,7 +12,7 @@ data class PostInfo(
     val postContent: String,
     val name: String,
     val userImage: Int
-) : Serializable
+) : Parcelable
 
 object PostList {
     private var nextIndex: Int = 1
