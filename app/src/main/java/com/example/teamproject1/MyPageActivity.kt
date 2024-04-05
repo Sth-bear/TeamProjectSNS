@@ -2,14 +2,17 @@ package com.example.teamproject1
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityMyPageBinding
 import java.io.IOException
@@ -45,6 +48,40 @@ class MyPageActivity : AppCompatActivity() {
             openGallery()
         }
 
+        binding.btnLanguage.setOnClickListener {
+            val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+            val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.language, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu5 ->
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    R.id.action_menu6 ->
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                }
+                false
+            }
+            popM.show()
+        }
+
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
+
         changeTheme()
 
         //뒤로가기 버튼
@@ -59,15 +96,39 @@ class MyPageActivity : AppCompatActivity() {
         super.finish()
         animationClose()
     }
+
+    private fun changeScreen() {
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
+    }
+
     private fun changeTheme(){
+        val light = getText(R.string.light)
+        val dark = getText(R.string.dark)
+        val system = getText(R.string.system)
+        val theme = getText(R.string.theme)
+
         binding.btnTheme.setOnClickListener {
-            val items = arrayOf("라이트 모드", "다크 모드", "시스템 지정")
+            val items = arrayOf("$light", "$dark", "$system")
             val builder = AlertDialog.Builder(this)
-                .setTitle("테마 변경")
+                .setTitle("$theme")
                 .setItems(items) { _, id ->
-                    if (items[id] == "라이트 모드") {
+                    if (items[id] == "$light") {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
-                    } else if (items[id] == "다크 모드") {
+                    } else if (items[id] == "$dark") {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
                     } else {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)

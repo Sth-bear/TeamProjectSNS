@@ -1,5 +1,7 @@
 package com.example.teamproject1
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -12,6 +14,7 @@ import com.example.teamproject1.PostList.postList
 import com.example.teamproject1.PostList.showInfo
 import com.example.teamproject1.databinding.ActivityMainBinding
 import com.example.teamproject1.databinding.ActivityPostBinding
+import java.io.Serializable
 
 class PostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPostBinding
@@ -22,22 +25,24 @@ class PostActivity : AppCompatActivity() {
         setContentView(view)
         setViewMore()
 
-/*        val writerId = intent.getStringExtra("userId").toString()
-        binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
-        val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
-        binding.ivUserImage.setImageResource(pageUserImage)
-        binding.tvName.text = pageUserName
-        binding.ivPostImage.setImageResource(pagePostImage)*/
-
-        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
-        selectedPost?.let { putEachData(it) }
-
+        /*        val writerId = intent.getStringExtra("userId").toString()
+                binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
+                val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
+                binding.ivUserImage.setImageResource(pageUserImage)
+                binding.tvName.text = pageUserName
+                binding.ivPostImage.setImageResource(pagePostImage)*/
         binding.btnBack.setOnClickListener {
             finish()
         }
 
+//        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
+        val selectedPost = intent.getParcelableExtra("selectedData", PostInfo::class.java)
+        selectedPost?.let { putEachData(it) }
+
+
     }
-    private fun putEachData(post:PostInfo){
+
+    private fun putEachData(post: PostInfo) {
         binding.ivUserImage.setImageResource(post.userImage)
         binding.tvName.text = post.name
         binding.ivPostImage.setImageResource(post.image)
@@ -47,6 +52,8 @@ class PostActivity : AppCompatActivity() {
     private fun setViewMore() {
         val tvTitle = binding.tvTitle //게시글
         val tvMore = binding.tvMore //더보기
+        val more = getText(R.string.more)
+        val less = getText(R.string.less)
         tvTitle.post {
             val lineCount = tvTitle.layout.lineCount
             if (tvTitle.layout.getEllipsisCount(lineCount - 1) > 0) {
@@ -54,15 +61,16 @@ class PostActivity : AppCompatActivity() {
                 // 위에 코드는 ellipsize인지 아닌지 확인하는 코드입니다.
                 tvMore.visibility = View.VISIBLE // <더보기 보이기 (짧은 글에는 보일 필요가 없어서 넣었습니다.)
                 tvMore.setOnClickListener {
-                    if (tvMore.text == "더보기") {
+                    if (tvMore.text == "$more") {
                         tvTitle.maxLines = Int.MAX_VALUE
-                        tvMore.text = "접기"
+                        tvMore.text = "$less"
                     } else {
                         tvTitle.maxLines = 2
-                        tvMore.text = "더보기"
+                        tvMore.text = "$more"
                     }
                 }
             }
         }
     }
+
 }

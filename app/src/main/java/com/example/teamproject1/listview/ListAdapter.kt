@@ -24,8 +24,6 @@ class ListAdapter(private val context: Context, private val arrayList: MutableLi
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
-        /*        val inflater : LayoutInflater = LayoutInflater.from(context)
-                val view : View = inflater.inflate(R.layout.item_post,null)*/
         var convertView = convertView
         val viewHolder: ViewHolder
 
