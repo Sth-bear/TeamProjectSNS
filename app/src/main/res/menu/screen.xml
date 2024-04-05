@@ -4,9 +4,9 @@
 
     <item
         android:id="@+id/action_menu3"
-        android:title="가로 모드" />
+        android:title="@string/garo" />
     <item
         android:id="@+id/action_menu4"
-        android:title="세로 모드"/>
+        android:title="@string/sero"/>
 
 </menu>
