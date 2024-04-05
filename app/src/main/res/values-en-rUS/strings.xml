@@ -28,6 +28,6 @@
     <string name="idpw">No match found.</string>
     <string name="pw4w">Your password needs to be longer than 4 characters.</string>
     <string name="usedid">This ID is already used.</string>
-    <string name="usedemail">This e-mail is already used.</string>
+    <string name="usedemail">Sorry. This e-mail is already used.</string>
     <string name="fillall">Please fill out all fields.</string>
 </resources>
