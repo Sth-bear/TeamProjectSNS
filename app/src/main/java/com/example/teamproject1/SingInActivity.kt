@@ -47,7 +47,6 @@ class SingInActivity : AppCompatActivity() {
         binding.btnSighUp.setOnClickListener {
             val intent = Intent(this, SingUpActivity::class.java)
             activityResultLauncher.launch(intent)
-
         }
     }
 
