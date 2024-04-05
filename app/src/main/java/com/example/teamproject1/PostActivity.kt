@@ -33,7 +33,6 @@ class PostActivity : AppCompatActivity() {
         selectedPost?.let { putEachData(it) }
 
         binding.btnBack.setOnClickListener {
-            Toast.makeText(this, "뭘봐ㅅ", Toast.LENGTH_SHORT).show()
             finish()
         }
 
