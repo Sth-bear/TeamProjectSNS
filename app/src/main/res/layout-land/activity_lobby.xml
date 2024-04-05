@@ -85,15 +85,8 @@
                 android:nestedScrollingEnabled="false"
                 android:scrollbars="none"
                 tools:listitem="@layout/item_post" />
-
-            <ImageView
-                android:id="@+id/ivPopUp"
-                android:layout_width="match_parent"
-                android:layout_height="169dp"
-                app:srcCompat="@drawable/popup" />
-
+          
         </LinearLayout>
-
 
     </LinearLayout>
 
