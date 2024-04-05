@@ -28,3 +28,7 @@ object UserList {
     }
 
 }
+
+object Global {
+    var img:Any? = null
+}

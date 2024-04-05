@@ -2,13 +2,12 @@ package com.example.teamproject1
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.teamproject1.UserList.userList
@@ -35,53 +34,47 @@ class MyPageActivity : AppCompatActivity() {
         val loginId = intent.getStringExtra("loginId")
         binding.tvName.text = userList.find{it.id == loginId}?.username
         binding.tvEmail.text = userList.find{it.id == loginId}?.email
-        userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
+        if (Global.img != null) {
+            binding.ivUserImage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
+        }
 
         //프로필 사진 등록 버튼
         binding.btnProfile.setOnClickListener {
             openGallery()
         }
 
-        //환경설정 팝업
-        binding.btnTheme.setOnClickListener {
-            val popupMenu = PopupMenu(this, it)
-            popupMenu.menuInflater.inflate(R.menu.menu, popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { menuItem ->
-
-                when (menuItem.itemId) {
-                    R.id.action_menu1 -> {
-                        //여기에 언어변경 코딩 입력해주세요
-                        Toast.makeText(this, "언어 변경이 완료되었습니다", Toast.LENGTH_SHORT).show()
-                        true
-                    }
-
-                    else -> { //테마 변경
-                        val items = arrayOf("라이트 모드", "다크 모드", "사용자 지정")
-                        val builder = AlertDialog.Builder(this)
-                            .setTitle("테마 변경")
-                            .setItems(items) { _, id ->
-                                if (items[id] == "라이트 모드") {
-                                    changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
-                                } else if (items[id] == "다크 모드") {
-                                    changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
-                                } else {
-                                    changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                                }
-                            }
-                        builder.show()
-                        true
-                    }
-                }
-            }
-            popupMenu.show()
-        }
+        changeTheme()
 
         //뒤로가기 버튼
-        binding.btnBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             val intent = Intent(this, LobbyActivity::class.java)
+            intent.putExtra("loginId", loginId)
+            startActivity(intent)
             finish()
         }
-
+    }
+    override fun finish() {
+        super.finish()
+        animationClose()
+    }
+    private fun changeTheme(){
+        binding.btnTheme.setOnClickListener {
+            val items = arrayOf("라이트 모드", "다크 모드", "시스템 지정")
+            val builder = AlertDialog.Builder(this)
+                .setTitle("테마 변경")
+                .setItems(items) { _, id ->
+                    if (items[id] == "라이트 모드") {
+                        changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
+                    } else if (items[id] == "다크 모드") {
+                        changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
+                    } else {
+                        changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                    }
+                }
+            builder.show()
+        }
     }
 
     //프로필 사진 교체
@@ -98,6 +91,7 @@ class MyPageActivity : AppCompatActivity() {
 
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                Global.img = bitmap
                 binding.ivUserImage.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -115,10 +109,6 @@ class MyPageActivity : AppCompatActivity() {
         }
     }
 
-    override fun finish() {
-        super.finish()
-        animationClose()
-    }
 
     private fun animationOpen() {
         if (Build.VERSION.SDK_INT >= 34) {
@@ -134,5 +124,8 @@ class MyPageActivity : AppCompatActivity() {
         } else {
             overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
         }
+    }
+    private fun changeTheme(mode: Int) {
+        AppCompatDelegate.setDefaultNightMode(mode)
     }
 }
