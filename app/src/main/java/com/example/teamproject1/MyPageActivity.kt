@@ -2,14 +2,17 @@ package com.example.teamproject1
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityMyPageBinding
 import java.io.IOException
@@ -43,6 +46,40 @@ class MyPageActivity : AppCompatActivity() {
         //프로필 사진 등록 버튼
         binding.btnProfile.setOnClickListener {
             openGallery()
+        }
+
+        binding.btnLanguage.setOnClickListener {
+            val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+            val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.language, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu5 ->
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    R.id.action_menu6 ->
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                }
+                false
+            }
+            popM.show()
+        }
+
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
         }
 
         changeTheme()

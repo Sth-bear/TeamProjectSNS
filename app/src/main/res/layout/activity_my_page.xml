@@ -51,9 +51,30 @@
         app:layout_constraintTop_toBottomOf="@+id/ivUserImage" />
 
     <Button
+        android:id="@+id/btnScreen"
+        android:layout_width="395dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="left"
+        android:radius="0dp"
+        android:text="화면 모드"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ivsetup"
+        app:iconPadding="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnTheme"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTheme"
+        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+
+    <Button
         android:id="@+id/btnTheme"
         android:layout_width="395dp"
         android:layout_height="45dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#FFFFFF"
         android:gravity="left"
         android:radius="0dp"
@@ -67,12 +88,13 @@
         app:layout_constraintEnd_toEndOf="@+id/btnLogOut"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnLogOut"
-        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScreen" />
 
     <Button
         android:id="@+id/btnLogOut"
         android:layout_width="395dp"
         android:layout_height="45dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#FFFFFF"
         android:gravity="left"
         android:radius="0dp"
@@ -84,7 +106,6 @@
         app:iconPadding="20dp"
         app:iconTint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/btnLanguage"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btnLanguage"
         app:layout_constraintTop_toBottomOf="@+id/btnTheme" />
 
