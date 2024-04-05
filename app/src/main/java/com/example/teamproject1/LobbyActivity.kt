@@ -1,8 +1,10 @@
 package com.example.teamproject1
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ListView
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityLobbyBinding
 import com.example.teamproject1.listview.ListAdapter
@@ -20,9 +22,17 @@ class LobbyActivity : AppCompatActivity() {
 
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
-        userList.find { it.id == loginId }?.userImage?.let { binding.ivToMyPage.setImageResource(it) }
-
+        if (Global.img != null) {
+            binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == loginId }?.userImage?.let {
+                binding.ivToMyPage.setImageResource(
+                    it
+                )
+            }
+        }
         initPost()
+        val listView = binding.postListView
         /*
                 //1번게시글
                 val (page1UserName,page1UserImage,page1PostImage) = showInfo("test2")
@@ -60,6 +70,7 @@ class LobbyActivity : AppCompatActivity() {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -70,9 +81,8 @@ class LobbyActivity : AppCompatActivity() {
         binding.postListView?.setOnItemClickListener { _, _, position, _ -> //parent, view, position, id
             val selectedPost = postList[position]
             //여기서 데이터 넘김
-            val intent = Intent(this, PostActivity::class.java).apply {
-                putExtra("selectedData", selectedPost)
-            }
+            val intent = Intent(this, PostActivity::class.java)
+            intent.putExtra("selectedData", selectedPost)
             startActivity(intent)
         }
     }

@@ -57,6 +57,5 @@ class SingInActivity : AppCompatActivity() {
         }
         return false
     }
-
 }
 
