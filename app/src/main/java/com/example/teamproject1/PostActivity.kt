@@ -3,6 +3,7 @@ package com.example.teamproject1
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -30,6 +31,11 @@ class PostActivity : AppCompatActivity() {
 
         val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
         selectedPost?.let { putEachData(it) }
+
+        binding.btnBack.setOnClickListener {
+            Toast.makeText(this, "뭘봐ㅅ", Toast.LENGTH_SHORT).show()
+            finish()
+        }
 
     }
     private fun putEachData(post:PostInfo){
