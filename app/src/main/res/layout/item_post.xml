@@ -23,6 +23,7 @@
         android:layout_marginStart="12dp"
         android:text="이름"
         android:textColor="@color/tvColor"
+        android:fontFamily="@font/chosun_font"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
         app:layout_constraintStart_toEndOf="@+id/ivUserImage"

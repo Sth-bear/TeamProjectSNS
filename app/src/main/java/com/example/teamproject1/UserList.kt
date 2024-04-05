@@ -30,7 +30,7 @@ object UserList {
 
 }
 
-object Global {//현재 로그인한 유저 정보용
+object Global {
     var id:String = ""
     var img:Any? = null
 }

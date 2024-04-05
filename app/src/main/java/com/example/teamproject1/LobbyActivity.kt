@@ -18,11 +18,17 @@ import com.example.teamproject1.listview.ListAdapter
 class LobbyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLobbyBinding
     private lateinit var adapter: ListAdapter
+    private lateinit var fontChange: FontChange
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLobbyBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
+        fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
 
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
@@ -45,6 +51,10 @@ class LobbyActivity : AppCompatActivity() {
 //        }
 //    }
 
+    private fun applyFontToAllViews(selectedFont: String) {
+        fontChange.applyFontToTextView(selectedFont, findViewById(android.R.id.content))
+    }
+
     private fun initPost() {
         val postList = PostList.postList
         adapter = ListAdapter(this, postList) //initAdapter
@@ -58,9 +68,10 @@ class LobbyActivity : AppCompatActivity() {
         }
     }
 
-    protected override fun onResume() { //Lobby에 돌아올시 유저아이콘 새로고침
-        super.onResume()
-        if (Global.img != null) {
+
+    protected override fun onResume() {
+        super.onResume() 
+        if (Global.img != null) {//로비 시작시마다 로그인유저 이미지 새로고침
             binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
         } else {
             userList.find { it.id == Global.id }?.userImage?.let {
@@ -69,6 +80,8 @@ class LobbyActivity : AppCompatActivity() {
                 )
             }
         }
+        // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
+        applyFontToAllViews(FontManager.getSelectedFont(this))
 
     }
 

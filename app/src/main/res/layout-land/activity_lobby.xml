@@ -85,10 +85,8 @@
                 android:nestedScrollingEnabled="false"
                 android:scrollbars="none"
                 tools:listitem="@layout/item_post" />
-
-
+          
         </LinearLayout>
-
 
     </LinearLayout>
 
