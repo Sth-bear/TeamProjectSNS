@@ -8,6 +8,7 @@ object UserList {
         UserInfo(username = "한정혁", id = "test2", email = "test2@email.com", password = "1234", userImage = R.drawable.iv_example2, userIntro = "안녕하세요"),
         UserInfo(username = "설희아", id = "test3", email = "test3@email.com", password = "1234", userImage = R.drawable.test, userIntro = "안녕하세요"),
         UserInfo(username = "한우영", id = "test4", email = "test4@email.com", password = "1234", userImage = R.drawable.test, userIntro = "안녕하세요"),
+        UserInfo(username = "Eleven", id = "master", email = "eleven@email.com", password = "1234", userImage = R.drawable.toplogo, userIntro = "Eleven!")
     )
 
     fun addUser(username: String, id: String, email:String, password:String){
@@ -29,7 +30,7 @@ object UserList {
 
 }
 
-object Global {
+object Global {//현재 로그인한 유저 정보용
     var id:String = ""
     var img:Any? = null
 }
