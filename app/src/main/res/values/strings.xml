@@ -1,13 +1,11 @@
 <resources>
     <string name="app_name">TeamProject1</string>
     <string name="signUp">회원가입</string>
-    <string name="logOut">LogOut</string>
     <string name="pwdHint">비밀번호</string>
     <string name="eMailHint">이메일</string>
     <string name="idHint">아이디</string>
     <string name="nameHint">이름</string>
     <string name="singUpTop">SignUp</string>
-    <string name="loginTop">Login</string>
     <string name="login">로그인</string>
     <string name="hello">안녕하세요</string>
     <string name="sir">님</string>
@@ -15,4 +13,20 @@
     <string name="theme">테마변경</string>
     <string name="lang">언어변경</string>
     <string name="dark">다크모드</string>
+    <string name="logOut">로그아웃</string>
+    <string name="loginTop">LogIn</string>
+    <string name="light">라이트 모드</string>
+    <string name="system">시스템 지정</string>
+    <string name="screen">화면 전환</string>
+    <string name="garo">가로 화면</string>
+    <string name="sero">세로 화면</string>
+    <string name="kor">한국어</string>
+    <string name="eng">영어</string>
+    <string name="more">더보기</string>
+    <string name="less">접기</string>
+    <string name="idpw">ID 또는 PW가 일치하지 않습니다.</string>
+    <string name="pw4w">비밀번호는 4자리 이상이어야 합니다.</string>
+    <string name="usedid">이미 사용중인 ID입니다.</string>
+    <string name="usedemail">이미 사용중인 Email입니다.</string>
+    <string name="fillall">모두 입력해주세요.</string>
 </resources>

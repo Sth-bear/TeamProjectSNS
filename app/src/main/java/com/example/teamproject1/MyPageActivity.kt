@@ -2,13 +2,17 @@ package com.example.teamproject1
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityMyPageBinding
 import java.io.IOException
@@ -33,9 +37,13 @@ class MyPageActivity : AppCompatActivity() {
         setUpLogOut()
 
         val loginId = intent.getStringExtra("loginId")
-        binding.tvName.text = userList.find { it.id == loginId }?.username
-        binding.tvEmail.text = userList.find { it.id == loginId }?.email
-        userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
+        binding.tvName.text = userList.find{it.id == loginId}?.username
+        binding.tvEmail.text = userList.find{it.id == loginId}?.email
+        if (Global.img != null) {
+            binding.ivUserImage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == loginId }?.userImage?.let { binding.ivUserImage.setImageResource(it) }
+        }
 
         //프로필 사진 등록 버튼
         binding.btnProfile.setOnClickListener {
@@ -43,32 +51,87 @@ class MyPageActivity : AppCompatActivity() {
         }
 
         onClickFontButton()
-
         fontChange = FontChange(this)
+
+
+        binding.btnLanguage.setOnClickListener {
+            val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+            val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.language, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu5 ->
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    R.id.action_menu6 ->
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                }
+                false
+            }
+            popM.show()
+        }
+
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
 
         changeTheme()
 
         //뒤로가기 버튼
         binding.ivBack.setOnClickListener {
-            val intent = Intent(this, LobbyActivity::class.java)
             finish()
         }
     }
-
     override fun finish() {
         super.finish()
         animationClose()
     }
 
-    private fun changeTheme() {
+    private fun changeScreen() {
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
+    }
+
+    private fun changeTheme(){
+        val light = getText(R.string.light)
+        val dark = getText(R.string.dark)
+        val system = getText(R.string.system)
+        val theme = getText(R.string.theme)
+
         binding.btnTheme.setOnClickListener {
-            val items = arrayOf("라이트 모드", "다크 모드", "시스템 지정")
+            val items = arrayOf("$light", "$dark", "$system")
             val builder = AlertDialog.Builder(this)
-                .setTitle("테마 변경")
+                .setTitle("$theme")
                 .setItems(items) { _, id ->
-                    if (items[id] == "라이트 모드") {
+                    if (items[id] == "$light") {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
-                    } else if (items[id] == "다크 모드") {
+                    } else if (items[id] == "$dark") {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
                     } else {
                         changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
@@ -92,6 +155,7 @@ class MyPageActivity : AppCompatActivity() {
 
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                Global.img = bitmap
                 binding.ivUserImage.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -105,6 +169,7 @@ class MyPageActivity : AppCompatActivity() {
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SingInActivity::class.java)
             startActivity(intent)
+            Global.img = null
             finishAffinity()
         }
     }
@@ -112,11 +177,7 @@ class MyPageActivity : AppCompatActivity() {
 
     private fun animationOpen() {
         if (Build.VERSION.SDK_INT >= 34) {
-            overrideActivityTransition(
-                OVERRIDE_TRANSITION_OPEN,
-                R.anim.slide_right_enter,
-                R.anim.slide_none
-            )
+            overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, R.anim.slide_right_enter, R.anim.slide_none)
         } else {
             overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_none)
         }
@@ -124,23 +185,18 @@ class MyPageActivity : AppCompatActivity() {
 
     private fun animationClose() {
         if (Build.VERSION.SDK_INT >= 34) {
-            overrideActivityTransition(
-                OVERRIDE_TRANSITION_CLOSE,
-                R.anim.slide_none,
-                R.anim.slide_right_exit
-            )
+            overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.slide_none, R.anim.slide_right_exit)
         } else {
             overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
         }
     }
-
     private fun changeTheme(mode: Int) {
         AppCompatDelegate.setDefaultNightMode(mode)
     }
 
     private fun onClickFontButton() {
         val fontOptions = arrayOf("부크크", "스노우", "조선체", "온글잎")
-        binding.btnFont.setOnClickListener {
+        binding.btnFont?.setOnClickListener {
             fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
                 // 폰트 변경 후 저장
                 FontManager.setSelectedFont(this, selectedFont)

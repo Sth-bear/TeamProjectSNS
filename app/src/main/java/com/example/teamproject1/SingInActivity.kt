@@ -36,11 +36,12 @@ class SingInActivity : AppCompatActivity() {
         binding.btnSighIn.setOnClickListener {
             if(login(id = binding.etId.text.toString(), password = binding.etPw.text.toString())) {
                 val intent = Intent(this, LobbyActivity::class.java)
-                intent.putExtra("loginId", binding.etId.text.toString())
+                Global.id = binding.etId.text.toString()
+                intent.putExtra("loginId", Global.id)
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "ID 또는 PW가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getText(R.string.idpw), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -57,6 +58,5 @@ class SingInActivity : AppCompatActivity() {
         }
         return false
     }
-
 }
 

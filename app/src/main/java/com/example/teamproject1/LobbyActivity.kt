@@ -1,8 +1,12 @@
 package com.example.teamproject1
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ListView
+import android.widget.Toast
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityLobbyBinding
 import com.example.teamproject1.listview.ListAdapter
@@ -24,50 +28,19 @@ class LobbyActivity : AppCompatActivity() {
         fontChange = FontChange(this)
         applyFontToAllViews(FontManager.getSelectedFont(this))
 
-
-//        val selectedFont = font.selectedFont
-
-        // 폰트 적용
-//        applyFontToTextView(selectedFont)
-
-
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
-        userList.find { it.id == loginId }?.userImage?.let { binding.ivToMyPage.setImageResource(it) }
-
+        if (Global.img != null) {
+            binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == loginId }?.userImage?.let {
+                binding.ivToMyPage.setImageResource(
+                    it
+                )
+            }
+        }
+        gotoBanner()
         initPost()
-        /*
-                //1번게시글
-                val (page1UserName,page1UserImage,page1PostImage) = showInfo("test2")
-                binding.tvName1.text = page1UserName
-                binding.ivUserImage1.setImageResource(page1UserImage)
-                binding.ivDetail1.setImageResource(page1PostImage)
-                binding.ivDetail1.setOnClickListener {
-                    binding.ivDetail.setOnClickListener {
-                    val intent = Intent(this, PostActivity::class.java)
-                    intent.putExtra("userId","test2" )
-                    startActivity(intent)
-
-                }
-                val(page2UserName,page2UserImage,page2PostImage) = showInfo("test3")
-                binding.tvName2.text = page2UserName
-                binding.ivUserImage2.setImageResource(page2UserImage)
-                binding.ivDetail2.setImageResource(page2PostImage)
-                binding.ivDetail2.setOnClickListener {
-                    val intent = Intent(this, PostActivity::class.java)
-                    intent.putExtra("userId", "test3")
-                    startActivity(intent)
-                }
-
-                val(page3UserName,page3UserImage,page3PostImage) = showInfo("test4")
-                binding.tvName3.text = page3UserName
-                binding.ivUserImage3.setImageResource(page3UserImage)
-                binding.ivDetail3.setImageResource(page3PostImage)
-                binding.ivDetail3.setOnClickListener {
-                    val intent = Intent(this, PostActivity::class.java)
-                    intent.putExtra("userId", "test4")
-                    startActivity(intent)
-                }*/
 
         binding.ivToMyPage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
@@ -75,11 +48,15 @@ class LobbyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    override fun onResume() {
-        super.onResume()
-        // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
-        applyFontToAllViews(FontManager.getSelectedFont(this))
+
+    private fun gotoBanner() {
+        binding.ivPopUp.setOnClickListener {
+            //주소를 변경하고 사용해주세요
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))
+            startActivity(intent)
+        }
     }
+
     private fun applyFontToAllViews(selectedFont: String) {
         fontChange.applyFontToTextView(selectedFont, findViewById(android.R.id.content))
     }
@@ -91,29 +68,25 @@ class LobbyActivity : AppCompatActivity() {
         binding.postListView?.setOnItemClickListener { _, _, position, _ -> //parent, view, position, id
             val selectedPost = postList[position]
             //여기서 데이터 넘김
-            val intent = Intent(this, PostActivity::class.java).apply {
-                putExtra("selectedData", selectedPost)
-            }
+            val intent = Intent(this, PostActivity::class.java)
+            intent.putExtra("selectedData", selectedPost)
             startActivity(intent)
         }
-
-
     }
-//    private fun applyFontToTextView(selectedFont: String?) {
-//        selectedFont?.let {
-//            // 선택한 폰트가 있다면 해당 폰트를 적용
-//            val fontChange = FontChange(this)
-//            fontChange.applyFontToTextView(it, findViewById(android.R.id.content))
-//        }
-//    }
-    /*    private fun pushUserInfo(Image: Any, name: String, postImage: Any, comment: String) {
-            val intent = Intent(this, PostActivity::class.java)
-            intent.putExtra("UserImage", Image)
-            intent.putExtra("Name", name)
-            intent.putExtra("PostImage", postImage)
-            intent.putExtra("Comment", comment
-            )
-            setResult(RESULT_OK, intent)
-            finish()
-        }*/
+
+    protected override fun onResume() {
+        super.onResume()
+        if (Global.img != null) {
+            binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == Global.id }?.userImage?.let {
+                binding.ivToMyPage.setImageResource(
+                    it
+                )
+            }
+        }
+        // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
+        applyFontToAllViews(FontManager.getSelectedFont(this))
+    }
+
 }

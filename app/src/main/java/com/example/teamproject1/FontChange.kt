@@ -53,9 +53,7 @@ class FontChange(private val context: Context) {
     }
 
     fun showFontSelectionDialog(
-        fontOptions: Array<String>,
-        onFontSelected: (String) -> Unit
-    ) {
+        fontOptions: Array<String>, onFontSelected: (String) -> Unit) {
         AlertDialog.Builder(context)
             .setTitle("폰트 선택")
             .setItems(fontOptions) { dialog, which ->

@@ -39,7 +39,7 @@
         android:backgroundTint="#FFFFFF"
         android:gravity="center_vertical"
         android:radius="0dp"
-        android:text="언어변경"
+        android:text="@string/lang"
         android:fontFamily="@font/sf_snow_font"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
@@ -54,7 +54,28 @@
         app:layout_constraintTop_toBottomOf="@+id/ivUserImage" />
 
     <Button
+        android:id="@+id/btnScreen"
+        android:layout_width="395dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="left"
+        android:radius="0dp"
+        android:text="@string/screen"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ivsetup"
+        app:iconPadding="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnTheme"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTheme"
+        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+
+    <Button
         android:id="@+id/btnTheme"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:backgroundTint="#FFFFFF"
@@ -73,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btnLogOut"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnLogOut"
-        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScreen" />
 
     <Button
         android:id="@+id/btnFont"
@@ -101,6 +122,7 @@
         android:id="@+id/btnLogOut"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#FFFFFF"
         android:gravity="center_vertical"
         android:radius="0dp"
@@ -115,7 +137,6 @@
         app:iconPadding="20dp"
         app:iconTint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/btnLanguage"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btnLanguage"
         app:layout_constraintTop_toBottomOf="@+id/btnFont" />
 
