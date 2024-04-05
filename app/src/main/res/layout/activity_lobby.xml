@@ -57,6 +57,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/hello"
+                android:fontFamily="@font/sf_snow_font"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,6 +69,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/tvHello"
+                android:fontFamily="@font/chosun_font"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tvHello"
                 app:layout_constraintTop_toBottomOf="@+id/tvHello" />
@@ -79,6 +81,7 @@
                 android:text="@string/sir"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/chosun_font"
                 app:layout_constraintBottom_toBottomOf="@+id/tvUserName"
                 app:layout_constraintStart_toEndOf="@+id/tvUserName" />
         </androidx.constraintlayout.widget.ConstraintLayout>

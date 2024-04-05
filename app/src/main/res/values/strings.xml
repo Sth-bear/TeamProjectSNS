@@ -29,4 +29,9 @@
     <string name="usedid">이미 사용중인 ID입니다.</string>
     <string name="usedemail">이미 사용중인 Email입니다.</string>
     <string name="fillall">모두 입력해주세요.</string>
+    <string name="fontchange">폰트변경</string>
+    <string name="bukk">부크크</string>
+    <string name="snow">스노우</string>
+    <string name="chosun">조선체</string>
+    <string name="ongle">온글잎</string>
 </resources>

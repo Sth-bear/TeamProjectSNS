@@ -30,4 +30,9 @@
     <string name="usedid">This ID is already used.</string>
     <string name="usedemail">Sorry. This e-mail is already used.</string>
     <string name="fillall">Please fill out all fields.</string>
+    <string name="fontchange">Change Font</string>
+    <string name="bukk">Bukk</string>
+    <string name="snow">Snow</string>
+    <string name="chosun">Chosun</string>
+    <string name="ongle">Ongle</string>
 </resources>

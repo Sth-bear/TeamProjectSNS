@@ -18,6 +18,7 @@ import java.io.Serializable
 
 class PostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPostBinding
+    private lateinit var fontChange: FontChange
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostBinding.inflate(layoutInflater)
@@ -38,6 +39,9 @@ class PostActivity : AppCompatActivity() {
 //        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
         val selectedPost = intent.getParcelableExtra("selectedData", PostInfo::class.java)
         selectedPost?.let { putEachData(it) }
+
+        fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
 
 
     }
@@ -71,6 +75,15 @@ class PostActivity : AppCompatActivity() {
                 }
             }
         }
+
+    }
+    override fun onResume() {
+        super.onResume()
+        // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
+        applyFontToAllViews(FontManager.getSelectedFont(this))
+    }
+    private fun applyFontToAllViews(selectedFont: String) {
+        fontChange.applyFontToTextView(selectedFont, binding.root)
     }
 
 }

@@ -20,6 +20,8 @@ import java.io.IOException
 //개인정보
 class MyPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyPageBinding
+    private lateinit var fontChange: FontChange
+    private lateinit var fontManager: FontManager
 
     //사진지정개수
     companion object {
@@ -47,6 +49,10 @@ class MyPageActivity : AppCompatActivity() {
         binding.btnProfile.setOnClickListener {
             openGallery()
         }
+
+        onClickFontButton()
+        fontChange = FontChange(this)
+
 
         binding.btnLanguage.setOnClickListener {
             val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
@@ -89,7 +95,6 @@ class MyPageActivity : AppCompatActivity() {
             finish()
         }
     }
-
     override fun finish() {
         super.finish()
         animationClose()
@@ -187,5 +192,26 @@ class MyPageActivity : AppCompatActivity() {
     }
     private fun changeTheme(mode: Int) {
         AppCompatDelegate.setDefaultNightMode(mode)
+    }
+
+    private fun onClickFontButton() {
+        val bukk = getString(R.string.bukk)
+        val snow = getString(R.string.snow)
+        val chsun = getString(R.string.chosun)
+        val ongle = getString(R.string.ongle)
+        val fontOptions = arrayOf("$bukk", "$snow", "$chsun", "$ongle")
+        binding.btnFont?.setOnClickListener {
+            fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
+                // 폰트 변경 후 저장
+                FontManager.setSelectedFont(this, selectedFont)
+                applyFontToAllViews(FontManager.getSelectedFont(this))
+
+
+            }
+        }
+    }
+    private fun applyFontToAllViews(selectedFont: String) {
+        val fontChange = FontChange(this)
+        fontChange.applyFontToTextView(selectedFont, binding.root)
     }
 }
