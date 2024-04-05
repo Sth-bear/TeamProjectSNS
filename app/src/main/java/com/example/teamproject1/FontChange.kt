@@ -41,13 +41,20 @@ class FontChange(private val context: Context) {
         }
     }
 
+    val bukk = context.getString(R.string.bukk)
+    val snow = context.getString(R.string.snow)
+    val chosun = context.getString(R.string.chosun)
+    val ongle = context.getString(R.string.ongle)
+    val fontchange = context.getString(R.string.fontchange)
 
     fun getFontResourceId(selectedFont: String): Int {
+
+
         return when (selectedFont) {
-            "부크크" -> R.font.bukk_font
-            "스노우" -> R.font.sf_snow_font
-            "조선체" -> R.font.chosun_font
-            "온글잎" -> R.font.ongle_font
+            "$bukk" -> R.font.bukk_font
+            "$snow" -> R.font.sf_snow_font
+            "$chosun" -> R.font.chosun_font
+            "$ongle" -> R.font.ongle_font
             else -> 0
         }
     }
@@ -55,7 +62,7 @@ class FontChange(private val context: Context) {
     fun showFontSelectionDialog(
         fontOptions: Array<String>, onFontSelected: (String) -> Unit) {
         AlertDialog.Builder(context)
-            .setTitle("폰트 선택")
+            .setTitle("$fontchange")
             .setItems(fontOptions) { dialog, which ->
                 val selectedFont = fontOptions[which]
                 onFontSelected(selectedFont)

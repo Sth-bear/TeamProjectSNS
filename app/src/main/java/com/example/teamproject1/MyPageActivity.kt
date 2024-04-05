@@ -195,7 +195,11 @@ class MyPageActivity : AppCompatActivity() {
     }
 
     private fun onClickFontButton() {
-        val fontOptions = arrayOf("부크크", "스노우", "조선체", "온글잎")
+        val bukk = getString(R.string.bukk)
+        val snow = getString(R.string.snow)
+        val chsun = getString(R.string.chosun)
+        val ongle = getString(R.string.ongle)
+        val fontOptions = arrayOf("$bukk", "$snow", "$chsun", "$ongle")
         binding.btnFont?.setOnClickListener {
             fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
                 // 폰트 변경 후 저장
