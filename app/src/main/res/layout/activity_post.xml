@@ -85,6 +85,7 @@
                     android:layout_marginTop="10dp"
                     android:ellipsize="end"
                     android:maxLines="2"
+                    android:autoLink="web"
                     tools:text="오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요.오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요.오늘 날씨가 엄청 덥네요! 패딩은 두고 오세요."
                     android:textSize="15sp"
                     android:textStyle="bold"
