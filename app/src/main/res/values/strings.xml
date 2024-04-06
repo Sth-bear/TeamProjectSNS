@@ -17,7 +17,7 @@
     <string name="loginTop">LogIn</string>
     <string name="light">라이트 모드</string>
     <string name="system">시스템 지정</string>
-    <string name="screen">화면 전환</string>
+    <string name="screen">화면전환</string>
     <string name="garo">가로 화면</string>
     <string name="sero">세로 화면</string>
     <string name="kor">한국어</string>
