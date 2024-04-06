@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ListView
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityLobbyBinding
 import com.example.teamproject1.listview.ListAdapter
@@ -39,10 +38,8 @@ class LobbyActivity : AppCompatActivity() {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)
             startActivity(intent)
-            finish()
         }
     }
-
     private fun gotoBanner() {
         binding.ivPopUp.setOnClickListener {
             //주소를 변경하고 사용해주세요
@@ -61,6 +58,20 @@ class LobbyActivity : AppCompatActivity() {
             val intent = Intent(this, PostActivity::class.java)
             intent.putExtra("selectedData", selectedPost)
             startActivity(intent)
+        }
+    }
+
+
+    protected override fun onResume() {
+        super.onResume()
+        if (Global.img != null) {
+            binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
+        } else {
+            userList.find { it.id == Global.id }?.userImage?.let {
+                binding.ivToMyPage.setImageResource(
+                    it
+                )
+            }
         }
     }
 }

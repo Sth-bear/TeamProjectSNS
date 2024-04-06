@@ -31,21 +31,21 @@ class SingUpActivity : AppCompatActivity() {
 
             if (listOf(inputId, inputEmail, inputPW, inputName).all { it.isNotBlank() }) { //빈칸검사
                 if (binding.etPW.text.toString().length < 3) {
-                    Toast.makeText(this, "비밀번호는 4자리 이상이어야 합니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getText(R.string.pw4w), Toast.LENGTH_SHORT).show()
                 } else {
                     if (checkId(id = inputId)) { // id중복체크
                         if (checkEmail(email = inputEmail)) {//email중복체크
                             addUser(username = inputName, id = inputId, password = inputPW, email = inputEmail)
                             pushUserInfo(inputId, inputPW) // 아이디,비밀번호 SignIn페이지로 넘기기
                         } else {
-                            Toast.makeText(this, "이미 사용중인 Email입니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getText(R.string.usedemail), Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Toast.makeText(this, "이미 사용중인 ID입니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getText(R.string.usedid), Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Toast.makeText(this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getText(R.string.fillall), Toast.LENGTH_SHORT).show()
             }
         }
     }
