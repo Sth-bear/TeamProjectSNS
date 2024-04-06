@@ -5,10 +5,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.SpannableString
-import android.widget.ListView
-import android.widget.Toast
-import com.example.teamproject1.PostList.postList
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityLobbyBinding
 import com.example.teamproject1.listview.ListAdapter
@@ -43,14 +39,6 @@ class LobbyActivity : AppCompatActivity() {
         }
     }
 
-//    private fun gotoBanner() {
-//        binding.ivPopUp.setOnClickListener {
-//            //주소를 변경하고 사용해주세요
-//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))
-//            startActivity(intent)
-//        }
-//    }
-
     private fun applyFontToAllViews(selectedFont: String) {
         fontChange.applyFontToTextView(selectedFont, findViewById(android.R.id.content))
     }
@@ -82,7 +70,5 @@ class LobbyActivity : AppCompatActivity() {
         }
         // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
         applyFontToAllViews(FontManager.getSelectedFont(this))
-
     }
-
 }
