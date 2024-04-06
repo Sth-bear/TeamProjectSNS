@@ -8,10 +8,9 @@ android {
     namespace = "com.example.teamproject1"
     compileSdk = 34
 
-
     defaultConfig {
         applicationId = "com.example.teamproject1"
-        minSdk = 33
+        minSdk = 34
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
