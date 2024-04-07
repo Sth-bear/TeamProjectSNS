@@ -62,7 +62,7 @@ SNS 앱 만들기
 
 #### 5. Font 변경
   * 다양한 종류의 Font 지원
-<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/64d4b568-488e-4f7b-a435-ee0d1c2d360b" height="500" width="300">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/64d4b568-488e-4f7b-a435-ee0d1c2d360b" height="500" width="230">
 <br>
 
 #### 6. 로그아웃
