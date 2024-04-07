@@ -32,11 +32,14 @@ SNS 앱 만들기
 ### 📍로그인 / 회원가입
 <img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/a92413b6-9a8b-440a-bc3d-ab15ee9800c7" height="500" width="230">|<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/41d53675-2fac-486a-90e5-23d0f3e0d521" height="500" width="230">
 --- | --- |
+* 회원가입한 id,password 자동 입력
+* 중복 id, e-mail 검증
 <br>
 
 ### 📍게시물 확인
 <img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/663f5d6b-c120-41db-b9bd-53d1214ca86f" height="500" width="230">|<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/98c98856-98fe-4cb9-bf0c-989ba38f7f4d" height="500" width="230">
 --- | --- |
+* '더보기' 기능
 <br>
 
 ### 📍설정
