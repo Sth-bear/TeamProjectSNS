@@ -2,7 +2,6 @@ package com.example.teamproject1
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.teamproject1.UserList.userList
@@ -22,16 +21,17 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
         fontChange = FontChange(this)
         applyFontToAllViews(FontManager.getSelectedFont(this))
 
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
 
-
         initPost()
+        goMyPage(loginId)
+    }
 
+    private fun goMyPage(loginId: String?) {
         binding.ivToMyPage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)

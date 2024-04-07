@@ -9,7 +9,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -37,8 +36,8 @@ class MyPageActivity : AppCompatActivity() {
         setUpLogOut()
 
         val loginId = intent.getStringExtra("loginId")
-        binding.tvName.text = userList.find{it.id == loginId}?.username
-        binding.tvEmail.text = userList.find{it.id == loginId}?.email
+        binding.tvName.text = userList.find { it.id == loginId }?.username
+        binding.tvEmail.text = userList.find { it.id == loginId }?.email
         if (Global.img != null) {
             binding.ivUserImage.setImageBitmap(Global.img as Bitmap)
         } else {
@@ -46,18 +45,21 @@ class MyPageActivity : AppCompatActivity() {
         }
 
         //프로필 사진 등록 버튼
-        binding.btnProfile.setOnClickListener {
-            openGallery()
-        }
-
+        changeProfileImage()
         onClickFontButton()
-        fontChange = FontChange(this)
-
         changeLanguage()
         changeScreen()
         changeTheme()
+        goBack()
+    }
 
-        //뒤로가기 버튼
+    private fun changeProfileImage() {
+        binding.btnProfile.setOnClickListener {
+            initGallery()
+        }
+    }
+
+    private fun goBack() {
         binding.ivBack.setOnClickListener {
             finish()
         }
@@ -110,7 +112,7 @@ class MyPageActivity : AppCompatActivity() {
         }
     }
 
-    private fun changeTheme(){
+    private fun changeTheme() {
         val light = getText(R.string.light)
         val dark = getText(R.string.dark)
         val system = getText(R.string.system)
@@ -134,7 +136,7 @@ class MyPageActivity : AppCompatActivity() {
     }
 
     //프로필 사진 교체
-    private fun openGallery() {
+    private fun initGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
@@ -154,7 +156,6 @@ class MyPageActivity : AppCompatActivity() {
             }
         }
     }
-
 
     //로그아웃버튼
     private fun setUpLogOut() {
@@ -182,6 +183,7 @@ class MyPageActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_none, R.anim.slide_right_exit)
         }
     }
+
     private fun changeTheme(mode: Int) {
         AppCompatDelegate.setDefaultNightMode(mode)
     }
@@ -191,17 +193,17 @@ class MyPageActivity : AppCompatActivity() {
         val snow = getString(R.string.snow)
         val chsun = getString(R.string.chosun)
         val ongle = getString(R.string.ongle)
-        val fontOptions = arrayOf("$bukk", "$snow", "$chsun", "$ongle")
-        binding.btnFont?.setOnClickListener {
+        val fontOptions = arrayOf(bukk, snow, chsun, ongle)
+        binding.btnFont.setOnClickListener {
             fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
                 // 폰트 변경 후 저장
                 FontManager.setSelectedFont(this, selectedFont)
                 applyFontToAllViews(FontManager.getSelectedFont(this))
-
-
             }
         }
+        fontChange = FontChange(this)
     }
+
     private fun applyFontToAllViews(selectedFont: String) {
         val fontChange = FontChange(this)
         fontChange.applyFontToTextView(selectedFont, binding.root)
