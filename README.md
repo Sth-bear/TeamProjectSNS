@@ -35,7 +35,7 @@ SNS 앱 만들기
 <br>
 
 ### 📍게시물 확인
-<img src="" height="500" width="230">|<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/ec3463d5-6b70-43e6-8668-b7f2df2d1b29" height="500" width="230">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/663f5d6b-c120-41db-b9bd-53d1214ca86f" height="500" width="230">|<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/ec3463d5-6b70-43e6-8668-b7f2df2d1b29" height="500" width="230">
 --- | --- |
 <br>
 
@@ -66,8 +66,3 @@ SNS 앱 만들기
 <br>
 
 #### 6. 로그아웃
-
-
-
-
-
