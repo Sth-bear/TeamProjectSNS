@@ -34,34 +34,34 @@ SNS 앱 만들기
 <br>
 
 ### 📍게시물 확인
-<img src="" height="500" width="230">|<img src="" height="500" width="230">
+<img src="" height="500" width="230">|<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/ec3463d5-6b70-43e6-8668-b7f2df2d1b29" height="500" width="230">
 --- | --- |
 <br>
 
 ### 📍설정
 1. 프로필 이미지 선택
   * 갤러리에서 선택한 이미지로 프로필 사진 변경
-<img src="" height="500" width="300">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/8fe04154-e8b0-47cc-9eba-61ac211e024d" height="500" width="230">
 <br>
 
 2. 언어 선택
   * 한국어, 영어 선택 지원
-<img src="" height="500" width="300">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/880e5cd8-2e72-456e-863c-c10e365802ae" height="500" width="230">
 <br>
 
 3. 가로 세로 모드
   * 기존 모드에서 가로, 세로 변경 가능
-<img src="" height="500" width="300">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/70d0e32e-0cb5-48f6-9edb-0bb810b4d900" height="500" width="230">
 <br>
 
 4. 테마 변경
   * 라이트 모드, 다크 모드, 시스템 설정 모드로 변경 가능
-<img src="" height="500" width="300">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/b844ed32-1cd1-44d4-8ae6-5230fb5be7e8" height="500" width="230">
 <br>
 
 5. Font 변경
   * 다양한 종류의 Font 지원
-<img src="" height="500" width="300">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/d9aeddad-12c1-46e8-ab3d-4ad774ad2a92" height="500" width="300">
 <br>
 
 6. 로그아웃
