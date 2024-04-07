@@ -41,7 +41,7 @@ SNS 앱 만들기
 ### 📍설정
 1. 프로필 이미지 선택
   * 갤러리에서 선택한 이미지로 프로필 사진 변경
-<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/c90229d4-a970-4072-bee6-effb062f6b34" height="250" width="250">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/c90229d4-a970-4072-bee6-effb062f6b34" height="500" width="230">
 <br>
 
 2. 언어 선택
