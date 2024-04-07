@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/btnSighIn"
         android:layout_width="307dp"
-        android:layout_height="47dp"
+        android:layout_height="51dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/tvColor"
         android:text="@string/login"

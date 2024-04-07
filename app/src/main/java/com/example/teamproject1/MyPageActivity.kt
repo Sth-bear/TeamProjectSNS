@@ -47,6 +47,10 @@ class MyPageActivity : AppCompatActivity() {
         //프로필 사진 등록 버튼
         changeProfileImage()
         onClickFontButton()
+
+        fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
+
         changeLanguage()
         changeScreen()
         changeTheme()
@@ -194,6 +198,7 @@ class MyPageActivity : AppCompatActivity() {
         val chsun = getString(R.string.chosun)
         val ongle = getString(R.string.ongle)
         val fontOptions = arrayOf(bukk, snow, chsun, ongle)
+
         binding.btnFont.setOnClickListener {
             fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
                 // 폰트 변경 후 저장

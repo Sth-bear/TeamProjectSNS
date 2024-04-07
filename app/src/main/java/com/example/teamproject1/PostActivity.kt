@@ -37,8 +37,8 @@ class PostActivity : AppCompatActivity() {
 
     private fun setUpFont() {
         fontChange = FontChange(this)
-        applyFontToAllViews(FontManager.getSelectedFont(this))
     }
+
 
 
 
@@ -76,14 +76,13 @@ class PostActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 
+    }
     override fun onResume() {
         super.onResume()
         // 로비 액티비티가 다시 시작될 때마다 폰트를 적용합니다.
         applyFontToAllViews(FontManager.getSelectedFont(this))
     }
-
     private fun applyFontToAllViews(selectedFont: String) {
         fontChange.applyFontToTextView(selectedFont, binding.root)
     }

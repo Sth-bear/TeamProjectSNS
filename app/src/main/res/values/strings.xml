@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TeamProject1</string>
+    <string name="app_name">Eleven</string>
     <string name="signUp">회원가입</string>
     <string name="pwdHint">비밀번호</string>
     <string name="eMailHint">이메일</string>

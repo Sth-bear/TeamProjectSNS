@@ -64,7 +64,6 @@ class FontChange(private val context: Context) {
             .setItems(fontOptions) { dialog, which ->
                 val selectedFont = fontOptions[which]
                 onFontSelected(selectedFont)
-                FontManager.getSelectedFont(context)
                 dialog.dismiss()
             }
             .show()
