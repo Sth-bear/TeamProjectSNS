@@ -30,7 +30,7 @@ SNS 앱 만들기
  
 ## 📌주요기능
 ### 📍로그인 / 회원가입
-<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/a92413b6-9a8b-440a-bc3d-ab15ee9800c7" height="500" width="230">|<img src="(https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/1a60e77c-9598-4446-867c-c06df066bc4c" height="500" width="230">
+<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/a92413b6-9a8b-440a-bc3d-ab15ee9800c7" height="500" width="230">|<img src="https://github.com/Sth-bear/TeamProjectSNS/assets/84631435/41d53675-2fac-486a-90e5-23d0f3e0d521" height="500" width="230">
 --- | --- |
 <br>
 
