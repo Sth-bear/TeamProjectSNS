@@ -52,42 +52,10 @@ class MyPageActivity : AppCompatActivity() {
 
         onClickFontButton()
         fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
 
-
-        binding.btnLanguage.setOnClickListener {
-            val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
-            val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
-            val popM = PopupMenu(this, it)
-            popM.menuInflater.inflate(R.menu.language, popM.menu)
-            popM.setOnMenuItemClickListener { menuItem ->
-
-                when (menuItem.itemId) {
-                    R.id.action_menu5 ->
-                        AppCompatDelegate.setApplicationLocales(koLocale)
-                    R.id.action_menu6 ->
-                        AppCompatDelegate.setApplicationLocales(enLocale)
-                }
-                false
-            }
-            popM.show()
-        }
-
-        binding.btnScreen.setOnClickListener {
-            val popM = PopupMenu(this, it)
-            popM.menuInflater.inflate(R.menu.screen, popM.menu)
-            popM.setOnMenuItemClickListener { menuItem ->
-
-                when (menuItem.itemId) {
-                    R.id.action_menu3 ->
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-                    R.id.action_menu4 ->
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-                }
-                false
-            }
-            popM.show()
-        }
-
+        changeLanguage()
+        changeScreen()
         changeTheme()
 
         //뒤로가기 버튼
@@ -95,26 +63,51 @@ class MyPageActivity : AppCompatActivity() {
             finish()
         }
     }
+
     override fun finish() {
         super.finish()
         animationClose()
     }
 
-    private fun changeScreen() {
-        binding.btnScreen.setOnClickListener {
-            val popM = PopupMenu(this, it)
-            popM.menuInflater.inflate(R.menu.screen, popM.menu)
-            popM.setOnMenuItemClickListener { menuItem ->
+    private fun changeLanguage() {
+        val kor = getText(R.string.kor)
+        val eng = getText(R.string.eng)
+        val lang = getText(R.string.lang)
+        val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+        val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
 
-                when (menuItem.itemId) {
-                    R.id.action_menu3 ->
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-                    R.id.action_menu4 ->
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        binding.btnLanguage.setOnClickListener {
+            val items = arrayOf("$kor", "$eng")
+            val builder = AlertDialog.Builder(this)
+                .setTitle("$lang")
+                .setItems(items) { _, id ->
+                    if (items[id] == "$kor") {
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    } else {
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                    }
                 }
-                false
-            }
-            popM.show()
+            builder.show()
+        }
+    }
+
+    private fun changeScreen() {
+        val garo = getText(R.string.garo)
+        val sero = getText(R.string.sero)
+        val screen = getText(R.string.screen)
+
+        binding.btnScreen.setOnClickListener {
+            val items = arrayOf("$garo", "$sero")
+            val builder = AlertDialog.Builder(this)
+                .setTitle("$screen")
+                .setItems(items) { _, id ->
+                    if (items[id] == "$garo") {
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    } else {
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    }
+                }
+            builder.show()
         }
     }
 
@@ -200,7 +193,7 @@ class MyPageActivity : AppCompatActivity() {
         val chsun = getString(R.string.chosun)
         val ongle = getString(R.string.ongle)
         val fontOptions = arrayOf("$bukk", "$snow", "$chsun", "$ongle")
-        binding.btnFont?.setOnClickListener {
+        binding.btnFont.setOnClickListener {
             fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
                 // 폰트 변경 후 저장
                 FontManager.setSelectedFont(this, selectedFont)

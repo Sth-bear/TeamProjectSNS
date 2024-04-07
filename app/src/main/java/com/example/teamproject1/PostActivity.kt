@@ -26,22 +26,14 @@ class PostActivity : AppCompatActivity() {
         setContentView(view)
         setViewMore()
 
-        /*        val writerId = intent.getStringExtra("userId").toString()
-                binding.tvTitle.text = postList.find { it.id == writerId }?.postContent
-                val(pageUserName,pageUserImage,pagePostImage) = showInfo(writerId)
-                binding.ivUserImage.setImageResource(pageUserImage)
-                binding.tvName.text = pageUserName
-                binding.ivPostImage.setImageResource(pagePostImage)*/
         binding.btnBack.setOnClickListener {
             finish()
         }
 
-//        val selectedPost = intent.getSerializableExtra("selectedData") as? PostInfo
         val selectedPost = intent.getParcelableExtra("selectedData", PostInfo::class.java)
         selectedPost?.let { putEachData(it) }
 
         fontChange = FontChange(this)
-        applyFontToAllViews(FontManager.getSelectedFont(this))
 
 
     }
@@ -56,21 +48,21 @@ class PostActivity : AppCompatActivity() {
     private fun setViewMore() {
         val tvTitle = binding.tvTitle //게시글
         val tvMore = binding.tvMore //더보기
-        val more = getText(R.string.more)
-        val less = getText(R.string.less)
+
+
         tvTitle.post {
-            val lineCount = tvTitle.layout.lineCount
-            if (tvTitle.layout.getEllipsisCount(lineCount - 1) > 0) {
-                // getEllipsisCount는 textView에서 ellipsis를 설정한 경우 생략부호의 수를 반환하는 것입니다.
-                // 위에 코드는 ellipsize인지 아닌지 확인하는 코드입니다.
-                tvMore.visibility = View.VISIBLE // <더보기 보이기 (짧은 글에는 보일 필요가 없어서 넣었습니다.)
+            val titleLineCount = tvTitle.layout.lineCount
+            val titleMaxLine = tvTitle.maxLines
+
+            if (tvTitle.layout.getEllipsisCount(titleLineCount - 1) > 0 || titleLineCount >= titleMaxLine) {
+                tvMore.visibility = View.VISIBLE
                 tvMore.setOnClickListener {
-                    if (tvMore.text == "$more") {
+                    if (tvMore.text == getString(R.string.more)) {
                         tvTitle.maxLines = Int.MAX_VALUE
-                        tvMore.text = "$less"
+                        tvMore.text = getString(R.string.less)
                     } else {
-                        tvTitle.maxLines = 2
-                        tvMore.text = "$more"
+                        tvTitle.maxLines = 3
+                        tvMore.text = getString(R.string.more)
                     }
                 }
             }
