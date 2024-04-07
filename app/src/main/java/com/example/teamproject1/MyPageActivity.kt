@@ -52,6 +52,7 @@ class MyPageActivity : AppCompatActivity() {
 
         onClickFontButton()
         fontChange = FontChange(this)
+        applyFontToAllViews(FontManager.getSelectedFont(this))
 
         changeLanguage()
         changeScreen()
@@ -192,7 +193,7 @@ class MyPageActivity : AppCompatActivity() {
         val chsun = getString(R.string.chosun)
         val ongle = getString(R.string.ongle)
         val fontOptions = arrayOf("$bukk", "$snow", "$chsun", "$ongle")
-        binding.btnFont?.setOnClickListener {
+        binding.btnFont.setOnClickListener {
             fontChange.showFontSelectionDialog(fontOptions) { selectedFont ->
                 // 폰트 변경 후 저장
                 FontManager.setSelectedFont(this, selectedFont)

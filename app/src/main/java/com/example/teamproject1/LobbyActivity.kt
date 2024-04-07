@@ -5,6 +5,8 @@ import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ListView
+import android.widget.Toast
 import com.example.teamproject1.UserList.userList
 import com.example.teamproject1.databinding.ActivityLobbyBinding
 import com.example.teamproject1.listview.ListAdapter
@@ -29,7 +31,6 @@ class LobbyActivity : AppCompatActivity() {
         val loginId = intent.getStringExtra("loginId")
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
 
-
         initPost()
 
         binding.ivToMyPage.setOnClickListener {
@@ -40,7 +41,7 @@ class LobbyActivity : AppCompatActivity() {
     }
 
     private fun applyFontToAllViews(selectedFont: String) {
-        fontChange.applyFontToTextView(selectedFont, findViewById(android.R.id.content))
+        fontChange.applyFontToTextView(selectedFont, binding.root)
     }
 
     private fun initPost() {
@@ -56,10 +57,9 @@ class LobbyActivity : AppCompatActivity() {
         }
     }
 
-
     protected override fun onResume() {
-        super.onResume() 
-        if (Global.img != null) {//로비 시작시마다 로그인유저 이미지 새로고침
+        super.onResume()
+        if (Global.img != null) {
             binding.ivToMyPage.setImageBitmap(Global.img as Bitmap)
         } else {
             userList.find { it.id == Global.id }?.userImage?.let {
