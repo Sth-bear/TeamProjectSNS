@@ -1,6 +1,7 @@
 package com.example.teamproject1
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -24,18 +25,27 @@ class PostActivity : AppCompatActivity() {
         binding = ActivityPostBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        setViewMore()
 
-        binding.btnBack.setOnClickListener {
-            finish()
-        }
+        setViewMore()
+        goBack()
+        setUpFont()
 
         val selectedPost = intent.getParcelableExtra("selectedData", PostInfo::class.java)
         selectedPost?.let { putEachData(it) }
 
+    }
+
+    private fun setUpFont() {
         fontChange = FontChange(this)
+    }
 
 
+
+
+    private fun goBack() {
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun putEachData(post: PostInfo) {
@@ -48,7 +58,6 @@ class PostActivity : AppCompatActivity() {
     private fun setViewMore() {
         val tvTitle = binding.tvTitle //게시글
         val tvMore = binding.tvMore //더보기
-
 
         tvTitle.post {
             val titleLineCount = tvTitle.layout.lineCount

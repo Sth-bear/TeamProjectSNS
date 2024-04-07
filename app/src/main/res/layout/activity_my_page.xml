@@ -149,7 +149,6 @@
         android:layout_width="79dp"
         android:layout_height="79dp"
         android:layout_marginStart="24dp"
-
         android:layout_marginTop="72dp"
         android:background="@drawable/mypage_user_image"
         app:layout_constraintStart_toStartOf="parent"
@@ -169,6 +168,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="38dp"
+        android:textColor="@color/white"
         android:backgroundTint="@color/black"
         android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="@+id/tvEmail"

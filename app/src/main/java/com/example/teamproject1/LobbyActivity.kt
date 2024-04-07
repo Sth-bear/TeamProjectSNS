@@ -2,7 +2,6 @@ package com.example.teamproject1
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
@@ -24,7 +23,6 @@ class LobbyActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
         fontChange = FontChange(this)
         applyFontToAllViews(FontManager.getSelectedFont(this))
 
@@ -32,7 +30,10 @@ class LobbyActivity : AppCompatActivity() {
         binding.tvUserName.text = userList.find { it.id == loginId }?.username
 
         initPost()
+        goMyPage(loginId)
+    }
 
+    private fun goMyPage(loginId: String?) {
         binding.ivToMyPage.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
             intent.putExtra("loginId", loginId)
